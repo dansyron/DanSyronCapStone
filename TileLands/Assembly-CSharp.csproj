@@ -46,6 +46,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\GameLoopScript.cs" />
      <Compile Include="Assets\Playmaker stuff\PlayMaker\Actions\ActivateGameObject.cs" />
      <Compile Include="Assets\Playmaker stuff\PlayMaker\Actions\AddAnimationClip.cs" />
      <Compile Include="Assets\Playmaker stuff\PlayMaker\Actions\AddComponent.cs" />
@@ -794,6 +795,7 @@
      <Compile Include="Assets\Playmaker stuff\iTween\iTween.cs" />
      <Compile Include="Assets\SolutionTile.cs" />
      <Compile Include="Assets\scripts\CubeTileScript.cs" />
+     <Compile Include="Assets\scripts\DestroyBorderCube.cs" />
      <Compile Include="Assets\scripts\GenerationTileScript.cs" />
      <Compile Include="Assets\scripts\PuzzleGeneratorScript.cs" />
      <None Include="Assets\Playmaker stuff\PlayMaker\Templates\readme.txt" />

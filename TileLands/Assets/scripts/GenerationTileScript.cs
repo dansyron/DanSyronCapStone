@@ -25,7 +25,6 @@ public class GenerationTileScript : MonoBehaviour {
 
 	void OnTriggerStay(Collider collision) 
 	{
-		Debug.Log("collided");
 		if (collision.gameObject.tag == "Tile") {
 			//Destroy (collision.gameObject);
 			PuzzleGeneratorScript.instance.DestroyCube(gameObject);
@@ -103,6 +102,10 @@ public class GenerationTileScript : MonoBehaviour {
 		Instantiate (Resources.Load ("SolutionGrid"), currentPosition, Quaternion.identity);
 	}
 
+	public void Destroy()
+	{
+		Destroy (gameObject);
+	}
 }
 		
 

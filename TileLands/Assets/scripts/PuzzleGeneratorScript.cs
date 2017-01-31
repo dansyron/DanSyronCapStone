@@ -7,9 +7,10 @@ public class PuzzleGeneratorScript : MonoBehaviour {
 	List<GameObject> SolutionTiles;
 	Vector3 currentPosition;
 	GameObject GenerationCube;
+
 	public static PuzzleGeneratorScript instance;
 	int easyEvolutions;
-	//int mediumEvolutions;
+	int mediumEvolutions;
 	//int hardEvolutions;
 	//int expertEvolutions;
 	int randomCheck;
@@ -26,8 +27,8 @@ public class PuzzleGeneratorScript : MonoBehaviour {
 		SolutionTiles = new List<GameObject>();
 
 		//placeholder evolution levels
-		easyEvolutions = 5;
-		//mediumEvolutions = 10;
+		easyEvolutions = 3;
+		mediumEvolutions = 6;
 		//hardEvolutions = 15;
 		//expertEvolutions = 20;
 
@@ -45,7 +46,7 @@ public class PuzzleGeneratorScript : MonoBehaviour {
 	{
 		//evolution count
 		//create the puzzle
-		for (int i = 0; i < easyEvolutions; i++) 
+		for (int i = 0; i < mediumEvolutions; i++) 
 		{
 			//creates new random
 			newRandomCubeInt = Random.Range (0, SolutionTiles.Count);
@@ -57,13 +58,30 @@ public class PuzzleGeneratorScript : MonoBehaviour {
 			randomCheck = newRandomCubeInt; 
 		}
 
-		//create the incorrect solution grid
+		////create the incorrect solution grid
+		//for (int i = -20; i < 21; i++) {
+		//	for (int j = -20; j < 21; j++) {
+		//		Instantiate (Resources.Load ("BorderCube"), new Vector3 (i, 0, j), Quaternion.identity);
+		//	}
+		//}
 
+		//generates the solution grid
+		for (int i = SolutionTiles.Count - 1; i > -1; i--) {
+			Instantiate (Resources.Load ("SolutionGrid"), new Vector3 (SolutionTiles[i].transform.position.x, 0, SolutionTiles[i].transform.position.z), Quaternion.identity);
+			//SolutionTiles [i].GetComponent<GenerationTileScript> ().Destroy ();
+			//SolutionTiles.RemoveAt (i);
+		}
+
+		foreach (GameObject solutionTile in SolutionTiles) {
+			solutionTile.GetComponent<GenerationTileScript> ().Destroy ();
+		}
 		//create the solution tiles from the finished solution
 
+		//clear all solutions
+		SolutionTiles.Clear ();
 
+		Instantiate (Resources.Load("GameControlObject"), Vector3.zero, Quaternion.identity);
 
-			
 
 
 	}
