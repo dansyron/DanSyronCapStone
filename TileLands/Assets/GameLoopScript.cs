@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class GameLoopScript : MonoBehaviour {
 
-	GameObject GameCube;
+	GameObject startTile;
 
 	// Use this for initialization
 	void Start () {
 
-		GameCube = Resources.Load<GameObject> ("BasicTile");
-		//instantiate new gamecube
-		Instantiate(GameCube, Vector3.zero, Quaternion.identity);
+		startTile = (GameObject)(Instantiate (Resources.Load ("BasicTile"), Vector3.zero, Quaternion.identity));
+
+		
 	}
 	
 	// Update is called once per frame

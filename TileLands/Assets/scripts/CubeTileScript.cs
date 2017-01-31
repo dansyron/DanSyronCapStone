@@ -10,12 +10,82 @@ public class CubeTileScript : MonoBehaviour {
 	Vector3 temporaryPosition3;
 	Vector3 temporaryPosition4;
 
+
+	//designated tile skin.
+	GameObject tileSkin;
+	GameObject tileFacade;
+
+	int skinRandomizer;
+
 	// Use this for initialization
 	void Start () 
 	{
-		transform.localScale = new Vector3(0f, 0f, 0f);
+		transform.localScale = new Vector3(1f, 1f, 1f);
+
+		skinRandomizer = Random.Range (0, 11);
+
+
+		switch (skinRandomizer) {
+		case 0:
+			{
+				tileSkin = (GameObject)Resources.Load ("GameTiles/Forest/GrassTile1");
+			}
+			break;
+		case 1:
+			{
+				tileSkin = (GameObject)Resources.Load ("GameTiles/Forest/GrassTile2");
+			}
+			break;
+		case 2:
+			{
+				tileSkin = (GameObject)(Resources.Load ("GameTiles/Forest/GrassTile3"));
+			}
+			break;
+		case 3:
+			{
+				tileSkin = (GameObject)Resources.Load ("GameTiles/Forest/LampPost1");
+			}
+			break;
+		case 4:
+			{
+				tileSkin = (GameObject)Resources.Load ("GameTiles/Forest/SmallTreeTile1");
+			}
+			break;
+		case 5:
+			{
+				tileSkin = (GameObject)Resources.Load ("GameTiles/Forest/SmallTreeTile2");
+			}
+			break;
+		case 6:
+			{
+				tileSkin = (GameObject)Resources.Load ("GameTiles/Forest/TreeTile1");
+			}
+			break;
+		case 7:
+			{
+				tileSkin = (GameObject)Resources.Load ("GameTiles/Forest/TreeTile2");
+			}
+			break;
+		case 8:
+			{
+				tileSkin = (GameObject)Resources.Load ("GameTiles/Forest/TreeTile3");
+			}
+			break;
+		case 9:
+			{
+				tileSkin = (GameObject)Resources.Load ("GameTiles/Forest/TreeTile4");
+			}
+			break;
+
+		}
+		Initialize ();
 	}
-	
+
+	void Initialize()
+	{
+		tileFacade = Instantiate (tileSkin, currentPosition, Quaternion.identity);
+	}
+
 	// Update is called once per frame
 	void Update ()
 
@@ -28,9 +98,9 @@ public class CubeTileScript : MonoBehaviour {
 
 	void OnTriggerStay(Collider collision) 
 	{
-		Debug.Log("collided");
 		if (collision.gameObject.tag == "Tile") {
 			//Destroy (collision.gameObject);
+			Destroy(tileFacade);
 			Destroy (gameObject);
 		}
 	}
@@ -60,4 +130,5 @@ public class CubeTileScript : MonoBehaviour {
 		}
 			
 	}
+		
 }

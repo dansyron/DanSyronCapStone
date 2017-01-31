@@ -6,6 +6,7 @@ public class PuzzleGeneratorScript : MonoBehaviour {
 
 	List<GameObject> SolutionTiles;
 	Vector3 currentPosition;
+	GameObject OceanPlane;
 	GameObject GenerationCube;
 
 	public static PuzzleGeneratorScript instance;
@@ -23,12 +24,13 @@ public class PuzzleGeneratorScript : MonoBehaviour {
 		instance = this;
 
 		GenerationCube = Resources.Load<GameObject> ("GenerationCube");
+		OceanPlane = Resources.Load<GameObject> ("OceanPlane");
 
 		SolutionTiles = new List<GameObject>();
 
 		//placeholder evolution levels
 		easyEvolutions = 3;
-		mediumEvolutions = 6;
+		mediumEvolutions = 4;
 		//hardEvolutions = 15;
 		//expertEvolutions = 20;
 
@@ -44,6 +46,8 @@ public class PuzzleGeneratorScript : MonoBehaviour {
 
 	void Initialize()
 	{
+		
+
 		//evolution count
 		//create the puzzle
 		for (int i = 0; i < mediumEvolutions; i++) 
@@ -80,6 +84,10 @@ public class PuzzleGeneratorScript : MonoBehaviour {
 		//clear all solutions
 		SolutionTiles.Clear ();
 
+
+		Instantiate (OceanPlane, Vector3.zero, Quaternion.identity);
+
+		//load game control object
 		Instantiate (Resources.Load("GameControlObject"), Vector3.zero, Quaternion.identity);
 
 

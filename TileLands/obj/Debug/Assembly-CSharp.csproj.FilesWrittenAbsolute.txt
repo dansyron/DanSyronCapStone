@@ -21,3 +21,28 @@
 /Users/Syron/Desktop/School Spring 2017/AI/Assignment 1/Testing AI 1/Temp/bin/Debug/Assembly-CSharp.dll
 /Users/Syron/Desktop/School Spring 2017/AI/Assignment 1/Testing AI 1/obj/Debug/Assembly-CSharp.dll
 /Users/Syron/Desktop/School Spring 2017/AI/Assignment 1/Testing AI 1/obj/Debug/Assembly-CSharp.dll.mdb
+/Users/Syron/Documents/GitHub/DanSyronCapStone/TileLands/Temp/bin/Debug/Assembly-CSharp.dll.mdb
+/Users/Syron/Documents/GitHub/DanSyronCapStone/TileLands/Temp/bin/Debug/Assembly-CSharp.dll
+/Users/Syron/Documents/GitHub/DanSyronCapStone/TileLands/obj/Debug/Assembly-CSharp.dll
+/Users/Syron/Documents/GitHub/DanSyronCapStone/TileLands/obj/Debug/Assembly-CSharp.dll.mdb
+/Users/Syron/Documents/GitHub/DanSyronCapStone/TileLands/Temp/bin/Debug/UnityEngine.dll
+/Users/Syron/Documents/GitHub/DanSyronCapStone/TileLands/Temp/bin/Debug/UnityEditor.dll
+/Users/Syron/Documents/GitHub/DanSyronCapStone/TileLands/Temp/bin/Debug/UnityEngine.UI.dll
+/Users/Syron/Documents/GitHub/DanSyronCapStone/TileLands/Temp/bin/Debug/UnityEngine.Networking.dll
+/Users/Syron/Documents/GitHub/DanSyronCapStone/TileLands/Temp/bin/Debug/UnityEngine.PlaymodeTestsRunner.dll
+/Users/Syron/Documents/GitHub/DanSyronCapStone/TileLands/Temp/bin/Debug/UnityEngine.Analytics.dll
+/Users/Syron/Documents/GitHub/DanSyronCapStone/TileLands/Temp/bin/Debug/UnityEngine.HoloLens.dll
+/Users/Syron/Documents/GitHub/DanSyronCapStone/TileLands/Temp/bin/Debug/UnityEngine.VR.dll
+/Users/Syron/Documents/GitHub/DanSyronCapStone/TileLands/Temp/bin/Debug/ConditionalExpression.dll
+/Users/Syron/Documents/GitHub/DanSyronCapStone/TileLands/Temp/bin/Debug/PlayMaker.dll
+/Users/Syron/Documents/GitHub/DanSyronCapStone/TileLands/Temp/bin/Debug/GETween.dll
+/Users/Syron/Documents/GitHub/DanSyronCapStone/TileLands/Temp/bin/Debug/GUIAnimatorFREE.dll
+/Users/Syron/Documents/GitHub/DanSyronCapStone/TileLands/Temp/bin/Debug/Mono.Cecil.dll
+/Users/Syron/Documents/GitHub/DanSyronCapStone/TileLands/Temp/bin/Debug/Unity.SerializationLogic.dll
+/Users/Syron/Documents/GitHub/DanSyronCapStone/TileLands/Temp/bin/Debug/Unity.DataContract.dll
+/Users/Syron/Documents/GitHub/DanSyronCapStone/TileLands/Temp/bin/Debug/ICSharpCode.NRefactory.dll
+/Users/Syron/Documents/GitHub/DanSyronCapStone/TileLands/Temp/bin/Debug/Unity.UNetWeaver.dll
+/Users/Syron/Documents/GitHub/DanSyronCapStone/TileLands/Temp/bin/Debug/Unity.UNetWeaver.dll.mdb
+/Users/Syron/Documents/GitHub/DanSyronCapStone/TileLands/Temp/bin/Debug/Unity.CecilTools.dll
+/Users/Syron/Documents/GitHub/DanSyronCapStone/TileLands/Temp/bin/Debug/Mono.Cecil.Pdb.dll
+/Users/Syron/Documents/GitHub/DanSyronCapStone/TileLands/Temp/bin/Debug/Mono.Cecil.Mdb.dll
