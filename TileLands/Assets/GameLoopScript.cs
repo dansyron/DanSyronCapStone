@@ -5,17 +5,23 @@ using UnityEngine;
 public class GameLoopScript : MonoBehaviour {
 
 	GameObject startTile;
+	public List<GameObject> solutionList;
 
 	// Use this for initialization
 	void Start () {
 
-		startTile = (GameObject)(Instantiate (Resources.Load ("BasicTile"), Vector3.zero, Quaternion.identity));
+		//create the new solution list
+		solutionList = new List<GameObject> ();
 
+		//create the new start tile
+		startTile = (GameObject)(Instantiate (Resources.Load ("BasicTile"), Vector3.zero, Quaternion.identity));
 		
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
 	}
+
+
+
 }

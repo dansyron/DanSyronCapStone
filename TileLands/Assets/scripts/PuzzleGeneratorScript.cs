@@ -8,6 +8,7 @@ public class PuzzleGeneratorScript : MonoBehaviour {
 	Vector3 currentPosition;
 	GameObject OceanPlane;
 	GameObject GenerationCube;
+	GameObject gameController;
 
 	public static PuzzleGeneratorScript instance;
 	int easyEvolutions;
@@ -16,6 +17,14 @@ public class PuzzleGeneratorScript : MonoBehaviour {
 	//int expertEvolutions;
 	int randomCheck;
 	int newRandomCubeInt;
+
+	bool solutionCreated;
+	bool gameLoaded;
+
+
+	float testCounter = 0;
+	int evolutionCounter;
+	int evolutionRequirement;
 
 	// Use this for initialization
 	void Start () 
@@ -30,7 +39,7 @@ public class PuzzleGeneratorScript : MonoBehaviour {
 
 		//placeholder evolution levels
 		easyEvolutions = 3;
-		mediumEvolutions = 20;
+		mediumEvolutions = 10;
 		//hardEvolutions = 15;
 		//expertEvolutions = 20;
 
@@ -41,63 +50,29 @@ public class PuzzleGeneratorScript : MonoBehaviour {
 		//add first cube
 		CreateCube(Vector3.zero);
 
+
+
 		Initialize ();
 	}
 
 	void Initialize()
 	{
-		
-
-		//evolution count
-		//create the puzzle
-		for (int i = 0; i < mediumEvolutions; i++) 
-		{
-			//creates new random
-			newRandomCubeInt = Random.Range (0, SolutionTiles.Count);
-
-			if (newRandomCubeInt != randomCheck) 
-			{
-				SolutionTiles [newRandomCubeInt].GetComponent<GenerationTileScript>().Toggle();
-			}
-			randomCheck = newRandomCubeInt; 
-		}
-
-		////create the incorrect solution grid
-		//for (int i = -20; i < 21; i++) {
-		//	for (int j = -20; j < 21; j++) {
-		//		Instantiate (Resources.Load ("BorderCube"), new Vector3 (i, 0, j), Quaternion.identity);
-		//	}
-		//}
-
-		//generates the solution grid
-		for (int i = SolutionTiles.Count - 1; i > -1; i--) {
-			Instantiate (Resources.Load ("SolutionGrid"), new Vector3 (SolutionTiles[i].transform.position.x, 0, SolutionTiles[i].transform.position.z), Quaternion.identity);
-			//SolutionTiles [i].GetComponent<GenerationTileScript> ().Destroy ();
-			//SolutionTiles.RemoveAt (i);
-		}
-
-		foreach (GameObject solutionTile in SolutionTiles) {
-			solutionTile.GetComponent<GenerationTileScript> ().Destroy ();
-		}
-		//create the solution tiles from the finished solution
-
-		//clear all solutions
-		SolutionTiles.Clear ();
+		//set gameload to false
+		gameLoaded = false;
 
 
 		Instantiate (OceanPlane, Vector3.zero, Quaternion.identity);
-
 		//load game control object
-		Instantiate (Resources.Load("GameControlObject"), Vector3.zero, Quaternion.identity);
+		gameController = (GameObject)(Instantiate (Resources.Load("GameControlObject"), Vector3.zero, Quaternion.identity));
 
-
-
+		ResetSolution();
+	
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
-
+			GameLoad ();
 	}
 
 	public void CreateCube(Vector3 position)
@@ -110,5 +85,94 @@ public class PuzzleGeneratorScript : MonoBehaviour {
 		SolutionTiles.Remove (gameObject);
 	}
 
+	//creates solution for the puzzles
+	public void CreateSolution()
+	{
 
+		//afterloop is done, create solution
+		//generates the solution grid
+		for (int i = SolutionTiles.Count - 1; i > -1; i--) {
+
+			//add the solution tile to the list
+
+			GameObject SolutionGridInstance = (GameObject)Resources.Load ("SolutionGrid");
+
+
+
+			//add a solution grid piece to the solution list
+			gameController.GetComponent<GameLoopScript>().solutionList.Add(Instantiate(SolutionGridInstance, new Vector3 (SolutionTiles [i].transform.position.x, 0, SolutionTiles [i].transform.position.z), Quaternion.identity));
+
+			SolutionTiles [i].GetComponent<GenerationTileScript> ().Destroy ();
+			SolutionTiles.RemoveAt (i);
+		}
+
+		foreach (GameObject solutionTile in SolutionTiles) {
+			solutionTile.GetComponent<GenerationTileScript> ().Destroy ();
+		}
+		//create the solution tiles from the finished solution
+
+		//clear all solutions
+		SolutionTiles.Clear ();
+	}
+
+	public void GeneratePuzzle()
+	{
+		//evoluton testing script
+		//WORkING PUZZLE GENERATION SCRIPT
+
+		testCounter += .4f;
+		//evolution testing script
+
+		if (testCounter > 1f){
+
+			if (evolutionCounter < evolutionRequirement) {
+
+				bool wasToggled = false;
+
+				if (!wasToggled) {
+
+					//creates new random
+					newRandomCubeInt = Random.Range (0, SolutionTiles.Count);
+
+					if (newRandomCubeInt != randomCheck) {
+						SolutionTiles [newRandomCubeInt].GetComponent<GenerationTileScript> ().Toggle ();
+						wasToggled = true;
+						evolutionCounter++;
+					} else {
+
+					}
+				}
+				randomCheck = newRandomCubeInt;
+				testCounter = 0;
+			} else {
+				solutionCreated = false;
+			}
+		}
+
+		if (!solutionCreated) {
+			CreateSolution ();
+
+			//create game start tile
+			solutionCreated = true;
+		}
+
+		//end of puzzle generation script
+	}
+
+	public void ResetSolution()
+	{
+
+		evolutionCounter = 0;
+		evolutionRequirement = mediumEvolutions;
+		solutionCreated = true;
+	}
+
+	public void GameLoad()
+	{
+		//evoluton testing script
+		//WORkING PUZZLE GENERATION SCRIPT
+		GeneratePuzzle();
+		//end of puzzle generation script
+
+	}
 }

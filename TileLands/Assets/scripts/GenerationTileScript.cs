@@ -25,7 +25,7 @@ public class GenerationTileScript : MonoBehaviour {
 
 	void OnTriggerStay(Collider collision) 
 	{
-		if (collision.gameObject.tag == "Tile") {
+		if (collision.gameObject.tag == "PuzzleTile") {
 			//Destroy (collision.gameObject);
 			PuzzleGeneratorScript.instance.DestroyCube(gameObject);
 			Destroy (gameObject);
