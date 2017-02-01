@@ -13,6 +13,8 @@ public class CubeTileScript : MonoBehaviour {
 	//designated tile skin.
 	GameObject tileSkin;
 	GameObject tileFacade;
+	GameObject rippleEffect;
+	GameObject ripple;
 
 	int skinRandomizer;
 
@@ -22,7 +24,7 @@ public class CubeTileScript : MonoBehaviour {
 		transform.localScale = new Vector3(1f, 1f, 1f);
 
 		skinRandomizer = Random.Range (0, 13);
-
+		rippleEffect = (GameObject)Resources.Load ("Effects/TileRipples");
 
 		switch (skinRandomizer) {
 		case 0:
@@ -102,6 +104,11 @@ public class CubeTileScript : MonoBehaviour {
 
 		int randomRotation = Random.Range (0, 3);
 		tileFacade.transform.Rotate (new Vector3 (0, 90f * randomRotation, 0));
+
+		//create ripple on instance
+		ripple = Instantiate (rippleEffect, new Vector3(transform.position.x, -.4f, transform.position.z), Quaternion.identity);
+
+
 	}
 
 	// Update is called once per frame
@@ -118,6 +125,11 @@ public class CubeTileScript : MonoBehaviour {
 	{
 		if (collision.gameObject.tag == "Tile") {
 			//Destroy (collision.gameObject);
+
+			//create ripple on instance
+			ripple = Instantiate (rippleEffect, new Vector3(transform.position.x, -.4f, transform.position.z), Quaternion.identity);
+
+			//destroy object
 			Destroy(tileFacade);
 			Destroy (gameObject);
 		}
