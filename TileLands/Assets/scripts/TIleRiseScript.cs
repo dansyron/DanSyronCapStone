@@ -10,22 +10,22 @@ public class TIleRiseScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		transform.position = new Vector3 (transform.position.x, -6f, transform.position.z);
-		riseValue = .1f;
+		transform.position = new Vector3 (transform.position.x, -1f, transform.position.z);
+		riseValue = 4f;
 		currentY = transform.position.y;
-		hasRisen = false;
-		
+		hasRisen = false;	
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-		while (!hasRisen) {
+		if (!hasRisen) {
 			if (currentY < 0) {
-				currentY += riseValue;
+				currentY += riseValue * Time.deltaTime;
 				transform.position = new Vector3 (transform.position.x, currentY, transform.position.z);
 			} else {
 				hasRisen = true;
+				transform.position = new Vector3 (transform.position.x, 0f, transform.position.z);
 			}
 		}
 			

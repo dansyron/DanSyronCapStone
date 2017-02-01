@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CubeTileScript : MonoBehaviour {
 
-	Vector3 currentPosition;
 	Vector3 temporaryPosition1;
 	Vector3 temporaryPosition2;
 	Vector3 temporaryPosition3;
@@ -22,7 +21,7 @@ public class CubeTileScript : MonoBehaviour {
 	{
 		transform.localScale = new Vector3(1f, 1f, 1f);
 
-		skinRandomizer = Random.Range (0, 11);
+		skinRandomizer = Random.Range (0, 10);
 
 
 		switch (skinRandomizer) {
@@ -83,7 +82,8 @@ public class CubeTileScript : MonoBehaviour {
 
 	void Initialize()
 	{
-		tileFacade = Instantiate (tileSkin, currentPosition, Quaternion.identity);
+		tileFacade = Instantiate (tileSkin, transform.position, Quaternion.identity);
+		tileFacade.transform.SetParent (transform);
 	}
 
 	// Update is called once per frame
@@ -110,7 +110,7 @@ public class CubeTileScript : MonoBehaviour {
 		//on mouse click, create a new cube tile
 		if (Input.GetMouseButtonDown (0)) {
 
-			currentPosition = transform.position;
+			Vector3 currentPosition = transform.position;
 			temporaryPosition1 = new Vector3 (currentPosition.x + 1, currentPosition.y, currentPosition.z);
 			temporaryPosition2 = new Vector3 (currentPosition.x - 1, currentPosition.y, currentPosition.z);
 			temporaryPosition3 = new Vector3 (currentPosition.x, currentPosition.y, currentPosition.z + 1);
