@@ -2,15 +2,15 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/GameLoopScript.cs">
     <Files>
-      <File FileName="Assets/GameLoopScript.cs" Line="30" Column="34" />
-      <File FileName="Assets/scripts/GenerationTileScript.cs" Line="16" Column="16" />
-      <File FileName="Assets/SolutionTile.cs" Line="1" Column="16" />
-      <File FileName="Assets/scripts/RandomSunLight.cs" Line="31" Column="52" />
+      <File FileName="Assets/GameLoopScript.cs" Line="50" Column="6" />
+      <File FileName="Assets/scripts/GenerationTileScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/SolutionTile.cs" Line="1" Column="1" />
+      <File FileName="Assets/scripts/RandomSunLight.cs" Line="1" Column="1" />
       <File FileName="Assets/scripts/DestroyBorderCube.cs" Line="1" Column="1" />
-      <File FileName="Assets/scripts/TIleRiseScript.cs" Line="17" Column="21" />
+      <File FileName="Assets/scripts/TIleRiseScript.cs" Line="1" Column="1" />
       <File FileName="Assets/GameAssets.cs" Line="1" Column="1" />
       <File FileName="Assets/Transparency.cs" Line="1" Column="1" />
-      <File FileName="Assets/scripts/CubeTileScript.cs" Line="114" Column="36" />
+      <File FileName="Assets/scripts/CubeTileScript.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
