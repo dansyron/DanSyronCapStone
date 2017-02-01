@@ -6,7 +6,6 @@ public class PuzzleGeneratorScript : MonoBehaviour {
 
 	List<GameObject> SolutionTiles;
 	Vector3 currentPosition;
-	GameObject OceanPlane;
 	GameObject GenerationCube;
 	GameObject gameController;
 
@@ -33,7 +32,6 @@ public class PuzzleGeneratorScript : MonoBehaviour {
 		instance = this;
 
 		GenerationCube = Resources.Load<GameObject> ("GenerationCube");
-		OceanPlane = Resources.Load<GameObject> ("OceanPlane");
 
 		SolutionTiles = new List<GameObject>();
 
@@ -60,8 +58,6 @@ public class PuzzleGeneratorScript : MonoBehaviour {
 		//set gameload to false
 		gameLoaded = false;
 
-
-		Instantiate (OceanPlane, Vector3.zero, Quaternion.identity);
 		//load game control object
 		gameController = (GameObject)(Instantiate (Resources.Load("GameControlObject"), Vector3.zero, Quaternion.identity));
 

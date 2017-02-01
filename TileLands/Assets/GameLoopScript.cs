@@ -5,8 +5,9 @@ using UnityEngine;
 public class GameLoopScript : MonoBehaviour {
 
 	GameObject startTile;
-	GameObject OceanPlane;
 	GameObject sunLight;
+	GameObject ocean;
+	GameObject EnvironmentPlane;
 
 	public List<GameObject> solutionList;
 
@@ -20,15 +21,18 @@ public class GameLoopScript : MonoBehaviour {
 
 		//create the new solution list
 		solutionList = new List<GameObject> ();
+	
 
 		sunLight = (GameObject)Instantiate (Resources.Load ("Lights/SunLightObject"), Vector3.zero, Quaternion.identity);
 		sunLight.transform.Rotate(new Vector3( 90f, 0, 0));
 
-
-		OceanPlane = Resources.Load<GameObject> ("OceanPlane");
-
+		//create ocean;
+		ocean = Resources.Load<GameObject> ("OceanPlane");
 		//create ocean plane or other object.
-		Instantiate (OceanPlane, Vector3.zero, Quaternion.identity);
+		EnvironmentPlane = (GameObject)Instantiate (ocean, Vector3.zero, Quaternion.identity);
+
+
+
 
 		//create the new start tile
 		startTile = (GameObject)(Instantiate (Resources.Load ("BasicTile"), Vector3.zero, Quaternion.identity));
