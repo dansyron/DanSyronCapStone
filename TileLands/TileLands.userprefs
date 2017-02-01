@@ -1,12 +1,12 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Transparency.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/scripts/CameraRotation.cs">
     <Files>
-      <File FileName="Assets/scripts/CubeTileScript.cs" Line="96" Column="35" />
-      <File FileName="Assets/scripts/TIleRiseScript.cs" Line="28" Column="21" />
-      <File FileName="Assets/scripts/PuzzleGeneratorScript.cs" Line="33" Column="23" />
+      <File FileName="Assets/scripts/CubeTileScript.cs" Line="11" Column="2" />
+      <File FileName="Assets/scripts/TIleRiseScript.cs" Line="16" Column="16" />
+      <File FileName="Assets/scripts/PuzzleGeneratorScript.cs" Line="42" Column="28" />
       <File FileName="Assets/GameLoopScript.cs" Line="17" Column="9" />
-      <File FileName="Assets/Transparency.cs" Line="11" Column="2" />
+      <File FileName="Assets/scripts/CameraRotation.cs" Line="12" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
