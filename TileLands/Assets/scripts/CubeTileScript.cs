@@ -21,7 +21,7 @@ public class CubeTileScript : MonoBehaviour {
 	{
 		transform.localScale = new Vector3(1f, 1f, 1f);
 
-		skinRandomizer = Random.Range (0, 10);
+		skinRandomizer = Random.Range (0, 12);
 
 
 		switch (skinRandomizer) {
@@ -73,6 +73,16 @@ public class CubeTileScript : MonoBehaviour {
 		case 9:
 			{
 				tileSkin = (GameObject)Resources.Load ("GameTiles/Forest/TreeTile4");
+			}
+			break;
+		case 10:
+			{
+				tileSkin = (GameObject)Resources.Load ("GameTiles/Forest/CampSite1");
+			}
+			break;
+		case 11:
+			{
+				tileSkin = (GameObject)Resources.Load ("GameTiles/Forest/Rocks1");
 			}
 			break;
 

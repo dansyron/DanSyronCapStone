@@ -5,8 +5,10 @@ using UnityEngine;
 public class TIleRiseScript : MonoBehaviour {
 
 	bool hasRisen;
+	bool hasFallen;
 	float currentY;
 	float riseValue;
+
 
 	// Use this for initialization
 	void Start () {
@@ -14,6 +16,7 @@ public class TIleRiseScript : MonoBehaviour {
 		riseValue = 4f;
 		currentY = transform.position.y;
 		hasRisen = false;	
+		hasFallen = false;
 	}
 	
 	// Update is called once per frame
@@ -31,5 +34,8 @@ public class TIleRiseScript : MonoBehaviour {
 			
 		
 	}
+
+	//destroys prefab
+
 		
 }
