@@ -12,8 +12,8 @@ public class TIleRiseScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		transform.position = new Vector3 (transform.position.x, -1f, transform.position.z);
-		riseValue = 4f;
+		transform.position = new Vector3 (transform.position.x, -2f, transform.position.z);
+		riseValue = 6f;
 		currentY = transform.position.y;
 		hasRisen = false;	
 		hasFallen = false;
