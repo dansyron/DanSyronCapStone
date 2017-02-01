@@ -856,6 +856,7 @@
      <Compile Include="Assets\scripts\DestroyBorderCube.cs" />
      <Compile Include="Assets\scripts\GenerationTileScript.cs" />
      <Compile Include="Assets\scripts\PuzzleGeneratorScript.cs" />
+     <Compile Include="Assets\scripts\RandomSunLight.cs" />
      <Compile Include="Assets\scripts\TIleRiseScript.cs" />
      <None Include="Assets\Isometric Pack 3d\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\Isometric Pack 3d\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />
