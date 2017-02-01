@@ -84,6 +84,9 @@ public class CubeTileScript : MonoBehaviour {
 	{
 		tileFacade = Instantiate (tileSkin, transform.position, Quaternion.identity);
 		tileFacade.transform.SetParent (transform);
+
+		int randomRotation = Random.Range (0, 3);
+		tileFacade.transform.Rotate (new Vector3 (0, 90f * randomRotation, 0));
 	}
 
 	// Update is called once per frame

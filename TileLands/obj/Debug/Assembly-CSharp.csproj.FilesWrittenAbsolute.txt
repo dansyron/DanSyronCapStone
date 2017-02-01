@@ -46,3 +46,5 @@
 /Users/Syron/Documents/GitHub/DanSyronCapStone/TileLands/Temp/bin/Debug/Unity.CecilTools.dll
 /Users/Syron/Documents/GitHub/DanSyronCapStone/TileLands/Temp/bin/Debug/Mono.Cecil.Pdb.dll
 /Users/Syron/Documents/GitHub/DanSyronCapStone/TileLands/Temp/bin/Debug/Mono.Cecil.Mdb.dll
+/Users/Syron/Documents/GitHub/DanSyronCapStone/TileLands/Temp/bin/Debug/UnityEngine.Advertisements.dll
+/Users/Syron/Documents/GitHub/DanSyronCapStone/TileLands/Temp/bin/Debug/UnityEngine.Purchasing.dll
