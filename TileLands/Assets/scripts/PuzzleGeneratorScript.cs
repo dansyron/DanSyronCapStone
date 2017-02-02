@@ -36,8 +36,8 @@ public class PuzzleGeneratorScript : MonoBehaviour {
 		SolutionTiles = new List<GameObject>();
 
 		//placeholder evolution levels
-		easyEvolutions = 3;
-		mediumEvolutions = 10;
+		easyEvolutions = 5;
+		mediumEvolutions = 15;
 		//hardEvolutions = 15;
 		//expertEvolutions = 20;
 
@@ -150,7 +150,9 @@ public class PuzzleGeneratorScript : MonoBehaviour {
 
 			//create game start tile
 			solutionCreated = true;
-		}
+            //make the game active
+            GameManagerScript.instance.gameActive = true;
+        }
 
 		//end of puzzle generation script
 	}
@@ -171,4 +173,6 @@ public class PuzzleGeneratorScript : MonoBehaviour {
 		//end of puzzle generation script
 
 	}
+
+
 }
