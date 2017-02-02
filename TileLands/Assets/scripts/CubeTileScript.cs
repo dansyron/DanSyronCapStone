@@ -147,11 +147,19 @@ public class CubeTileScript : MonoBehaviour {
 			temporaryPosition4 = new Vector3 (currentPosition.x, currentPosition.y, currentPosition.z - 1);
 
 			//instantiate new cubes
-			Instantiate(Resources.Load("BasicTile"), temporaryPosition1, Quaternion.identity);
-			Instantiate(Resources.Load("BasicTile"), temporaryPosition2, Quaternion.identity);
-			Instantiate(Resources.Load("BasicTile"), temporaryPosition3, Quaternion.identity);
-			Instantiate(Resources.Load("BasicTile"), temporaryPosition4, Quaternion.identity);
+			//Instantiate(Resources.Load("BasicTile"), temporaryPosition1, Quaternion.identity);
+			//Instantiate(Resources.Load("BasicTile"), temporaryPosition2, Quaternion.identity);
+			//Instantiate(Resources.Load("BasicTile"), temporaryPosition3, Quaternion.identity);
+			//Instantiate(Resources.Load("BasicTile"), temporaryPosition4, Quaternion.identity);
 		
+
+			GameLoopScript.instance.CreateCube (temporaryPosition1);
+
+			GameLoopScript.instance.CreateCube (temporaryPosition2);
+
+			GameLoopScript.instance.CreateCube (temporaryPosition3);
+
+			GameLoopScript.instance.CreateCube (temporaryPosition4);
 
 			temporaryPosition1 = currentPosition;
 			temporaryPosition2 = currentPosition;
