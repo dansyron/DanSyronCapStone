@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class GameLoopScript : MonoBehaviour {
@@ -47,12 +48,16 @@ public class GameLoopScript : MonoBehaviour {
 				{
 
 					//restart scene
+				ResetGameScene();
 				}
 			}
 
 	}
 
-
+	public void ResetGameScene()
+	{
+		SceneManager.LoadScene("Tile Test Scene");
+	}
 
 
 }
