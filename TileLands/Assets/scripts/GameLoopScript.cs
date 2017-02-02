@@ -14,7 +14,8 @@ public class GameLoopScript : MonoBehaviour {
     GameObject gameCube;
     GameObject firework;
 
-    bool solved;
+    bool solved1;
+	bool solved2;
     bool fireworkTriggered = false;
     bool fireworkFinished = false;
     bool resettingMoves;
@@ -44,7 +45,8 @@ public class GameLoopScript : MonoBehaviour {
         rotatingCamera = false;
 
         //puzzle isnt solved
-        solved = false;
+        solved1 = false;
+		solved2 = false;
 
         //create instance of this object
         instance = this;
@@ -84,11 +86,12 @@ public class GameLoopScript : MonoBehaviour {
         if (GameManagerScript.instance.gameActive)
         {
             //solution checker
-            solved = solutionList.All(s => activeCubeList.Any(a => a.transform.position == s.transform.position));
+            solved1 = solutionList.All(s => activeCubeList.Any(a => a.transform.position == s.transform.position));
+			solved2 = activeCubeList.All(s => solutionList.Any(a => a.transform.position == s.transform.position));
         }
 
         //temporary solve flag
-        if (solved)
+        if (solved1 && solved2)
         {
             //deactivate game
             GameManagerScript.instance.gameActive = false;

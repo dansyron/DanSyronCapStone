@@ -63,7 +63,7 @@
      <Compile Include="Assets\GUI Animator\GUI Animator FREE\Demo (CSharp)\Scripts\GA_FREE_OpenOtherScene.cs" />
      <Compile Include="Assets\GUI Animator\GUI Animator FREE\Demo Basic (CSharp)\Scripts\GUIAnimatorFREEDemo.cs" />
      <Compile Include="Assets\GameAssets.cs" />
-     <Compile Include="Assets\GameLoopScript.cs" />
+     <Compile Include="Assets\GameManagerScript.cs" />
      <Compile Include="Assets\Isometric Pack 3d\Standard Assets\Effects\ImageEffects\Scripts\Antialiasing.cs" />
      <Compile Include="Assets\Isometric Pack 3d\Standard Assets\Effects\ImageEffects\Scripts\Bloom.cs" />
      <Compile Include="Assets\Isometric Pack 3d\Standard Assets\Effects\ImageEffects\Scripts\BloomAndFlares.cs" />
@@ -854,6 +854,7 @@
      <Compile Include="Assets\scripts\CameraRotation.cs" />
      <Compile Include="Assets\scripts\CubeTileScript.cs" />
      <Compile Include="Assets\scripts\DestroyBorderCube.cs" />
+     <Compile Include="Assets\scripts\GameLoopScript.cs" />
      <Compile Include="Assets\scripts\GenerationTileScript.cs" />
      <Compile Include="Assets\scripts\PuzzleGeneratorScript.cs" />
      <Compile Include="Assets\scripts\RandomSunLight.cs" />
@@ -977,16 +978,16 @@
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
  </Reference>
  <Reference Include="GETween">
- <HintPath>/Users/Syron/Documents/GitHub/DanSyronCapStone/TileLands/Assets/GUI Animator/Common/Plugins/GETween.dll</HintPath>
+ <HintPath>/Users/Syron/Documents/GitHub/DanSyronCapStone/TileLands/DanSyronCapStone/TileLands/Assets/GUI Animator/Common/Plugins/GETween.dll</HintPath>
  </Reference>
  <Reference Include="GUIAnimatorFREE">
- <HintPath>/Users/Syron/Documents/GitHub/DanSyronCapStone/TileLands/Assets/GUI Animator/GUI Animator FREE/Plugins/GUIAnimatorFREE.dll</HintPath>
+ <HintPath>/Users/Syron/Documents/GitHub/DanSyronCapStone/TileLands/DanSyronCapStone/TileLands/Assets/GUI Animator/GUI Animator FREE/Plugins/GUIAnimatorFREE.dll</HintPath>
  </Reference>
  <Reference Include="ConditionalExpression">
- <HintPath>/Users/Syron/Documents/GitHub/DanSyronCapStone/TileLands/Assets/Playmaker stuff/PlayMaker/ConditionalExpression.dll</HintPath>
+ <HintPath>/Users/Syron/Documents/GitHub/DanSyronCapStone/TileLands/DanSyronCapStone/TileLands/Assets/Playmaker stuff/PlayMaker/ConditionalExpression.dll</HintPath>
  </Reference>
  <Reference Include="PlayMaker">
- <HintPath>/Users/Syron/Documents/GitHub/DanSyronCapStone/TileLands/Assets/Playmaker stuff/Plugins/PlayMaker/PlayMaker.dll</HintPath>
+ <HintPath>/Users/Syron/Documents/GitHub/DanSyronCapStone/TileLands/DanSyronCapStone/TileLands/Assets/Playmaker stuff/Plugins/PlayMaker/PlayMaker.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
