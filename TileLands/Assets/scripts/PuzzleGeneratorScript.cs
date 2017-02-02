@@ -37,7 +37,7 @@ public class PuzzleGeneratorScript : MonoBehaviour {
 
 		//placeholder evolution levels
 		easyEvolutions = 5;
-		mediumEvolutions = 7;
+		mediumEvolutions = 5;
 		//hardEvolutions = 15;
 		//expertEvolutions = 20;
 
