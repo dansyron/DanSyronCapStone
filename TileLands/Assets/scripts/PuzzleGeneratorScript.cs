@@ -37,7 +37,7 @@ public class PuzzleGeneratorScript : MonoBehaviour {
 
 		//placeholder evolution levels
 		easyEvolutions = 5;
-		mediumEvolutions = 12;
+		mediumEvolutions = 8;
 		//hardEvolutions = 15;
 		//expertEvolutions = 20;
 
@@ -68,7 +68,12 @@ public class PuzzleGeneratorScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-			GameLoad ();
+
+        //check against game already having loaded
+        if (!gameLoaded)
+        {
+            GameLoad();
+        }
 	}
 
 	public void CreateCube(Vector3 position)
@@ -109,6 +114,9 @@ public class PuzzleGeneratorScript : MonoBehaviour {
 
 		//clear all solutions
 		SolutionTiles.Clear ();
+
+        //game has loaded
+        gameLoaded = true;
 	}
 
 	public void GeneratePuzzle()
@@ -169,10 +177,9 @@ public class PuzzleGeneratorScript : MonoBehaviour {
 	{
 		//evoluton testing script
 		//WORkING PUZZLE GENERATION SCRIPT
+
 		GeneratePuzzle();
 		//end of puzzle generation script
 
 	}
-
-
 }
