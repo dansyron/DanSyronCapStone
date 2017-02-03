@@ -16,6 +16,8 @@ public class CubeTileScript : MonoBehaviour {
     GameObject rippleEffect;
     GameObject ripple;
 
+    bool skinReplaced;
+
     int skinRandomizer;
 
     // Use this for initialization
@@ -23,10 +25,134 @@ public class CubeTileScript : MonoBehaviour {
     {
         transform.localScale = new Vector3(1f, 1f, 1f);
 
+        //if cube collides with any object from the cube list
+
+        //pick the forest skins
+        //PickForestSkins();
+        PickIncorrectSkin();
+
+        Initialize();
+    }
+
+    void Initialize()
+    {
+
+        ////////////////////////////
+        //establish the base skin
+        /////////////////////////////
+
+        //create the tile skins
+        tileFacade = Instantiate(tileSkin, transform.position, Quaternion.identity);
+        tileFacade.transform.SetParent(transform);
+        int randomRotation = Random.Range(0, 3);
+        tileFacade.transform.Rotate(new Vector3(0, 90f * randomRotation, 0));
+
+
+        //skin replace trigger
+        skinReplaced = false;
+
+
+
+        //create ripple on instance
+        ripple = Instantiate(rippleEffect, new Vector3(transform.position.x, -.4f, transform.position.z), Quaternion.identity);
+
+
+    }
+
+    // Update is called once per frame
+    void Update()
+
+    {
+        if (transform.localScale.x < 1)
+        {
+            transform.localScale += new Vector3(.1f, .1f, .1f);
+        }
+    }
+
+    void OnTriggerStay(Collider collision)
+    {
+        if (collision.gameObject.tag == "Tile") {
+            //Destroy (collision.gameObject);
+
+            //create ripple on instance
+            ripple = Instantiate(rippleEffect, new Vector3(transform.position.x, -.4f, transform.position.z), Quaternion.identity);
+
+            //remove current cube from list
+            GameLoopScript.instance.activeCubeList.Remove(gameObject);
+
+            //destroy object
+            Destroy(tileFacade);
+            Destroy(gameObject);
+        }
+
+        //if not on a solution tile, create the lava skin for that tile
+        if (collision.gameObject.tag == "SolutionTile")
+        {
+            if (!skinReplaced)
+            {
+                //destroy current skin
+                Destroy(tileFacade);
+
+                PickForestSkins();
+                //create the tile skins
+                tileFacade = Instantiate(tileSkin, transform.position, Quaternion.identity);
+                tileFacade.transform.SetParent(transform);
+                int randomRotation = Random.Range(0, 3);
+                tileFacade.transform.Rotate(new Vector3(0, 90f * randomRotation, 0));
+
+                //skin was replaced
+                skinReplaced = true;
+            }
+        }
+    }
+
+    void OnMouseDown()
+    {
+        //if game is active
+        if (GameManagerScript.instance.gameActive)
+        {
+            //on mouse click, create a new cube tile
+            if (Input.GetMouseButtonDown(0))
+            {
+
+                Vector3 currentPosition = transform.position;
+                temporaryPosition1 = new Vector3(currentPosition.x + 1, currentPosition.y, currentPosition.z);
+                temporaryPosition2 = new Vector3(currentPosition.x - 1, currentPosition.y, currentPosition.z);
+                temporaryPosition3 = new Vector3(currentPosition.x, currentPosition.y, currentPosition.z + 1);
+                temporaryPosition4 = new Vector3(currentPosition.x, currentPosition.y, currentPosition.z - 1);
+
+                //instantiate new cubes
+                //Instantiate(Resources.Load("BasicTile"), temporaryPosition1, Quaternion.identity);
+                //Instantiate(Resources.Load("BasicTile"), temporaryPosition2, Quaternion.identity);
+                //Instantiate(Resources.Load("BasicTile"), temporaryPosition3, Quaternion.identity);
+                //Instantiate(Resources.Load("BasicTile"), temporaryPosition4, Quaternion.identity);
+
+
+                GameLoopScript.instance.CreateCube(temporaryPosition1);
+
+                GameLoopScript.instance.CreateCube(temporaryPosition2);
+
+                GameLoopScript.instance.CreateCube(temporaryPosition3);
+
+                GameLoopScript.instance.CreateCube(temporaryPosition4);
+
+                temporaryPosition1 = currentPosition;
+                temporaryPosition2 = currentPosition;
+                temporaryPosition3 = currentPosition;
+                temporaryPosition4 = currentPosition;
+            }
+        }
+    }
+
+
+    //selects the random forest skins
+    void PickForestSkins()
+    {
         skinRandomizer = Random.Range(0, 13);
         rippleEffect = (GameObject)Resources.Load("Effects/TileRipples");
 
-        switch (skinRandomizer) {
+        switch (skinRandomizer)
+        {
             case 0:
                 {
                     tileSkin = (GameObject)Resources.Load("GameTiles/Forest/GrassTile1");
@@ -94,86 +220,13 @@ public class CubeTileScript : MonoBehaviour {
                 break;
 
         }
-        Initialize();
     }
 
-    void Initialize()
+    void PickIncorrectSkin()
     {
-        tileFacade = Instantiate(tileSkin, transform.position, Quaternion.identity);
-        tileFacade.transform.SetParent(transform);
+        rippleEffect = (GameObject)Resources.Load("Effects/TileRipples");
 
-        int randomRotation = Random.Range(0, 3);
-        tileFacade.transform.Rotate(new Vector3(0, 90f * randomRotation, 0));
-
-        //create ripple on instance
-        ripple = Instantiate(rippleEffect, new Vector3(transform.position.x, -.4f, transform.position.z), Quaternion.identity);
-
-
+        tileSkin = (GameObject)Resources.Load("GameTiles/IncorrectTile");
     }
 
-    // Update is called once per frame
-    void Update()
-
-    {
-        if (transform.localScale.x < 1)
-        {
-            transform.localScale += new Vector3(.1f, .1f, .1f);
-        }
-    }
-
-    void OnTriggerStay(Collider collision)
-    {
-        if (collision.gameObject.tag == "Tile") {
-            //Destroy (collision.gameObject);
-
-            //create ripple on instance
-            ripple = Instantiate(rippleEffect, new Vector3(transform.position.x, -.4f, transform.position.z), Quaternion.identity);
-
-            //remove current cube from list
-            GameLoopScript.instance.activeCubeList.Remove(gameObject);
-
-            //destroy object
-            Destroy(tileFacade);
-            Destroy(gameObject);
-        }
-    }
-
-    void OnMouseDown()
-    {
-        //if game is active
-        if (GameManagerScript.instance.gameActive)
-        {
-            //on mouse click, create a new cube tile
-            if (Input.GetMouseButtonDown(0))
-            {
-
-                Vector3 currentPosition = transform.position;
-                temporaryPosition1 = new Vector3(currentPosition.x + 1, currentPosition.y, currentPosition.z);
-                temporaryPosition2 = new Vector3(currentPosition.x - 1, currentPosition.y, currentPosition.z);
-                temporaryPosition3 = new Vector3(currentPosition.x, currentPosition.y, currentPosition.z + 1);
-                temporaryPosition4 = new Vector3(currentPosition.x, currentPosition.y, currentPosition.z - 1);
-
-                //instantiate new cubes
-                //Instantiate(Resources.Load("BasicTile"), temporaryPosition1, Quaternion.identity);
-                //Instantiate(Resources.Load("BasicTile"), temporaryPosition2, Quaternion.identity);
-                //Instantiate(Resources.Load("BasicTile"), temporaryPosition3, Quaternion.identity);
-                //Instantiate(Resources.Load("BasicTile"), temporaryPosition4, Quaternion.identity);
-
-
-                GameLoopScript.instance.CreateCube(temporaryPosition1);
-
-                GameLoopScript.instance.CreateCube(temporaryPosition2);
-
-                GameLoopScript.instance.CreateCube(temporaryPosition3);
-
-                GameLoopScript.instance.CreateCube(temporaryPosition4);
-
-                temporaryPosition1 = currentPosition;
-                temporaryPosition2 = currentPosition;
-                temporaryPosition3 = currentPosition;
-                temporaryPosition4 = currentPosition;
-            }
-        }
-    }
-		
 }
