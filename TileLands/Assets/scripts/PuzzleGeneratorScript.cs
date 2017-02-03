@@ -37,7 +37,7 @@ public class PuzzleGeneratorScript : MonoBehaviour {
 
 		//placeholder evolution levels
 		easyEvolutions = 5;
-		mediumEvolutions = 8;
+		mediumEvolutions = 11;
 		//hardEvolutions = 15;
 		//expertEvolutions = 20;
 
@@ -127,18 +127,21 @@ public class PuzzleGeneratorScript : MonoBehaviour {
 		testCounter += .4f;
 		//evolution testing script
 
-		if (testCounter > 1f){
+		if (testCounter > 1.2f){
 
 			if (evolutionCounter < evolutionRequirement) {
 
 				bool wasToggled = false;
+
 
 				if (!wasToggled) {
 
 					//creates new random
 					newRandomCubeInt = Random.Range (0, SolutionTiles.Count);
 
-					if (newRandomCubeInt != randomCheck) {
+
+                    //checks both previous entries
+					if (randomCheck != newRandomCubeInt) {
 						SolutionTiles [newRandomCubeInt].GetComponent<GenerationTileScript> ().Toggle ();
 						wasToggled = true;
 						evolutionCounter++;
@@ -146,7 +149,10 @@ public class PuzzleGeneratorScript : MonoBehaviour {
 
 					}
 				}
+
+                //set last cube to current
 				randomCheck = newRandomCubeInt;
+
 				testCounter = 0;
 			} else {
 				solutionCreated = false;
