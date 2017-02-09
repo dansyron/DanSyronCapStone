@@ -26,9 +26,12 @@ public class CubeTileScript : MonoBehaviour {
         transform.localScale = new Vector3(1f, 1f, 1f);
 
         //if cube collides with any object from the cube list
-
-        //pick the forest skins
-        //PickForestSkins();
+		if (PuzzleGeneratorScript.instance.CurrentTheme == Theme.Ocean) {
+			//pick the forest skins
+			PickForestSkins ();
+		} else if (PuzzleGeneratorScript.instance.CurrentTheme == Theme.Desert) {
+			
+		}
         PickIncorrectSkin();
 
         Initialize();
@@ -93,8 +96,18 @@ public class CubeTileScript : MonoBehaviour {
                 //destroy current skin
                 Destroy(tileFacade);
 
-                PickForestSkins();
-                //create the tile skins
+
+
+				//if cube collides with any object from the cube list
+				if (PuzzleGeneratorScript.instance.CurrentTheme == Theme.Ocean) {
+					//pick the forest skins
+					PickForestSkins ();
+				} else if (PuzzleGeneratorScript.instance.CurrentTheme == Theme.Desert) {
+
+				}
+
+
+
                 tileFacade = Instantiate(tileSkin, transform.position, Quaternion.identity);
                 tileFacade.transform.SetParent(transform);
                 int randomRotation = Random.Range(0, 3);
@@ -143,11 +156,11 @@ public class CubeTileScript : MonoBehaviour {
             }
         }
     }
-
-
+		
     //selects the random forest skins
     void PickForestSkins()
     {
+
         skinRandomizer = Random.Range(0, 13);
         rippleEffect = (GameObject)Resources.Load("Effects/TileRipples");
 
@@ -221,6 +234,30 @@ public class CubeTileScript : MonoBehaviour {
 
         }
     }
+
+	//desert skins
+	void PickDesertSkins()
+	{
+
+	}
+
+	//desertisland skins
+	void PickDesertIslandSkins()
+	{
+
+	}
+
+	//lavaskins
+	void PickLavaSkins()
+	{
+
+	}
+
+	//iceskins
+	void PickIceSkins()
+	{
+
+	}
 
     void PickIncorrectSkin()
     {

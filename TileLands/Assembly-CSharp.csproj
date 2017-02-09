@@ -852,6 +852,7 @@
      <Compile Include="Assets\Transparency.cs" />
      <Compile Include="Assets\Water Flow FREE\Scripts\WaterFlowFREEDemo.cs" />
      <Compile Include="Assets\scripts\CameraRotation.cs" />
+     <Compile Include="Assets\scripts\Constants.cs" />
      <Compile Include="Assets\scripts\CubeTileScript.cs" />
      <Compile Include="Assets\scripts\DestroyBorderCube.cs" />
      <Compile Include="Assets\scripts\GameLoopScript.cs" />

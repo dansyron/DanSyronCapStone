@@ -21,7 +21,6 @@ public class GameLoopScript : MonoBehaviour {
     bool resettingMoves;
     bool rotatingCamera;
 
-
     int fireworkTimer;
     float endingTimer;
     float endgameCameraRotation;
@@ -64,8 +63,22 @@ public class GameLoopScript : MonoBehaviour {
         sunLight = (GameObject)Instantiate(Resources.Load("Lights/SunLightObject"), Vector3.zero, Quaternion.identity);
         sunLight.transform.Rotate(new Vector3(90f, 0, 0));
 
-        //create ocean;
-        ocean = Resources.Load<GameObject>("OceanPlane");
+
+		//CREATE THE DIFFERENT PLACES FOR DIFFERNT THEMES
+		if (PuzzleGeneratorScript.instance.CurrentTheme == Theme.Ocean) {
+
+			/// 
+			//create ocean;
+			ocean = Resources.Load<GameObject>("OceanPlane");
+
+		} else if (PuzzleGeneratorScript.instance.CurrentTheme == Theme.Desert) {
+			/// 
+			//create ocean;
+			ocean = Resources.Load<GameObject>("OceanPlane");
+		}
+
+		//////////////
+
         //create ocean plane or other object.
         EnvironmentPlane = (GameObject)Instantiate(ocean, Vector3.zero, Quaternion.identity);
 

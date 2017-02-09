@@ -10,6 +10,7 @@ public class PuzzleGeneratorScript : MonoBehaviour {
 	GameObject gameController;
 
 	public static PuzzleGeneratorScript instance;
+
 	int easyEvolutions;
 	int mediumEvolutions;
 	//int hardEvolutions;
@@ -20,8 +21,14 @@ public class PuzzleGeneratorScript : MonoBehaviour {
 	bool solutionCreated;
 	bool gameLoaded;
 
+	//selects a random game theme
+	Theme randomTheme;
 
-	float testCounter = 0;
+	float testCounter;
+
+
+
+	//controls the evolution count
 	int evolutionCounter;
 	int evolutionRequirement;
 
@@ -30,6 +37,8 @@ public class PuzzleGeneratorScript : MonoBehaviour {
 	{
 		//create instance of this object
 		instance = this;
+
+		testCounter = 0;
 
 		GenerationCube = Resources.Load<GameObject> ("GenerationCube");
 
@@ -55,6 +64,9 @@ public class PuzzleGeneratorScript : MonoBehaviour {
 
 	void Initialize()
 	{
+		//select the proper theme
+		randomTheme = (Theme)Random.Range (0, 2);
+
 		//set gameload to false
 		gameLoaded = false;
 
@@ -187,5 +199,12 @@ public class PuzzleGeneratorScript : MonoBehaviour {
 		GeneratePuzzle();
 		//end of puzzle generation script
 
+	}
+
+
+	//theme selector
+	public Theme CurrentTheme {
+		get {return randomTheme; }
+		set { randomTheme = value; }
 	}
 }
