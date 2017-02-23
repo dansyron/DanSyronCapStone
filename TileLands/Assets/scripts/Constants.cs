@@ -15,4 +15,6 @@ public class Constants : MonoBehaviour {
 	public int HARD_EVOLUTIONS = 18;
 	public int EXPERT_EVOLUTIONS = 25;
 	public int MASTER_EVOLUTIONS = 30;
+
+	public int GAME_BORDER = 7;
 }

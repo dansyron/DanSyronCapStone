@@ -46,6 +46,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\CreateHowToMenu.cs" />
+     <Compile Include="Assets\DeleteUI.cs" />
      <Compile Include="Assets\GE Common Assets\GE Orbit Camera\Scripts\GE_OrbitCamera.cs" />
      <Compile Include="Assets\GE Common Assets\GE Orbit Camera\Scripts\GE_OrbitCameraUI.cs" />
      <Compile Include="Assets\GE Common Assets\GE Toggle Full Screen\Scripts\GE_ToggleFullScreenUI.cs" />
@@ -102,6 +104,9 @@
      <Compile Include="Assets\Isometric Pack 3d\Standard Assets\Effects\ImageEffects\Scripts\Twirl.cs" />
      <Compile Include="Assets\Isometric Pack 3d\Standard Assets\Effects\ImageEffects\Scripts\VignetteAndChromaticAberration.cs" />
      <Compile Include="Assets\Isometric Pack 3d\Standard Assets\Effects\ImageEffects\Scripts\Vortex.cs" />
+     <Compile Include="Assets\LoadScreenFade.cs" />
+     <Compile Include="Assets\MainMenuScript.cs" />
+     <Compile Include="Assets\NextStageScript.cs" />
      <Compile Include="Assets\Playmaker stuff\PlayMaker\Actions\ActivateGameObject.cs" />
      <Compile Include="Assets\Playmaker stuff\PlayMaker\Actions\AddAnimationClip.cs" />
      <Compile Include="Assets\Playmaker stuff\PlayMaker\Actions\AddComponent.cs" />
@@ -848,9 +853,18 @@
      <Compile Include="Assets\Playmaker stuff\PlayMaker\Include\iTweenFSMEvents.cs" />
      <Compile Include="Assets\Playmaker stuff\PlayMaker\UpdateHelper.cs" />
      <Compile Include="Assets\Playmaker stuff\iTween\iTween.cs" />
+     <Compile Include="Assets\ReturnToMainMenu.cs" />
      <Compile Include="Assets\SolutionTile.cs" />
+     <Compile Include="Assets\StartMainGame.cs" />
+     <Compile Include="Assets\TextFadeIn.cs" />
+     <Compile Include="Assets\TitleZoomIn.cs" />
      <Compile Include="Assets\Transparency.cs" />
+     <Compile Include="Assets\TurnsTaken.cs" />
      <Compile Include="Assets\Water Flow FREE\Scripts\WaterFlowFREEDemo.cs" />
+     <Compile Include="Assets\buttonfadein.cs" />
+     <Compile Include="Assets\gotoMainmenu.cs" />
+     <Compile Include="Assets\scripts\AudioManager.cs" />
+     <Compile Include="Assets\scripts\ButtonBob.cs" />
      <Compile Include="Assets\scripts\CameraRotation.cs" />
      <Compile Include="Assets\scripts\Constants.cs" />
      <Compile Include="Assets\scripts\CubeTileScript.cs" />
@@ -859,7 +873,13 @@
      <Compile Include="Assets\scripts\GenerationTileScript.cs" />
      <Compile Include="Assets\scripts\PuzzleGeneratorScript.cs" />
      <Compile Include="Assets\scripts\RandomSunLight.cs" />
+     <Compile Include="Assets\scripts\RestartCurrent.cs" />
+     <Compile Include="Assets\scripts\RestartPuzzleButton.cs" />
+     <Compile Include="Assets\scripts\RotateLeft.cs" />
+     <Compile Include="Assets\scripts\RotateRight.cs" />
      <Compile Include="Assets\scripts\TIleRiseScript.cs" />
+     <Compile Include="Assets\scripts\buttonFadeout.cs" />
+     <Compile Include="Assets\skyMovementScript.cs" />
      <None Include="Assets\Isometric Pack 3d\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\Isometric Pack 3d\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />
      <None Include="Assets\Isometric Pack 3d\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\SeparableWeightedBlurDof34.shader" />

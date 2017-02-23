@@ -10,9 +10,14 @@ public class GenerationTileScript : MonoBehaviour {
 	Vector3 temporaryPosition3;
 	Vector3 temporaryPosition4;
 
+	int border;
+
 	// Use this for initialization
 	void Start () 
 	{
+		//edge border constraint
+		border = 6;
+
 		transform.localScale = new Vector3(1f, 1f, 1f);
 	}
 
@@ -45,24 +50,31 @@ public class GenerationTileScript : MonoBehaviour {
 
 			//instantiate new cubes
 
-			PuzzleGeneratorScript.instance.CreateCube (temporaryPosition1);
+			if (Mathf.Abs (temporaryPosition1.x) <= border && Mathf.Abs (temporaryPosition1.y) <= border && Mathf.Abs (temporaryPosition1.z) <= border) {
+				PuzzleGeneratorScript.instance.CreateCube (temporaryPosition1);
+				temporaryPosition1 = currentPosition;
+			}
 
-			PuzzleGeneratorScript.instance.CreateCube (temporaryPosition2);
+			if (Mathf.Abs (temporaryPosition2.x) <= border && Mathf.Abs (temporaryPosition2.y) <= border && Mathf.Abs (temporaryPosition2.z) <= border) {
+				PuzzleGeneratorScript.instance.CreateCube (temporaryPosition2);
+				temporaryPosition2 = currentPosition;
+			}
 
-			PuzzleGeneratorScript.instance.CreateCube (temporaryPosition3);
+			if (Mathf.Abs (temporaryPosition3.x) <= border && Mathf.Abs (temporaryPosition3.y) <= border && Mathf.Abs (temporaryPosition3.z) <= border) {
+				PuzzleGeneratorScript.instance.CreateCube (temporaryPosition3);
+				temporaryPosition3 = currentPosition;
+			}
 
-			PuzzleGeneratorScript.instance.CreateCube (temporaryPosition4);
-
-			//Instantiate (Resources.Load ("GenerationCube"), temporaryPosition1, Quaternion.identity);
-			//Instantiate (Resources.Load ("GenerationCube"), temporaryPosition2, Quaternion.identity);
-			//Instantiate (Resources.Load ("GenerationCube"), temporaryPosition3, Quaternion.identity);
-			//Instantiate (Resources.Load ("GenerationCube"), temporaryPosition4, Quaternion.identity);
+			if (Mathf.Abs (temporaryPosition4.x) <= border && Mathf.Abs (temporaryPosition4.y) <= border && Mathf.Abs (temporaryPosition4.z) <= border) {
+				PuzzleGeneratorScript.instance.CreateCube (temporaryPosition4);
+				temporaryPosition4 = currentPosition;
+			}
 
 			//reset temp positions.
-			temporaryPosition1 = currentPosition;
-			temporaryPosition2 = currentPosition;
-			temporaryPosition3 = currentPosition;
-			temporaryPosition4 = currentPosition;
+
+
+
+
 		}
 
 	}
