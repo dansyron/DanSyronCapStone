@@ -28,7 +28,7 @@ public class PickDifficulty : MonoBehaviour {
 		difficultyInterface = (GameObject)Instantiate(Resources.Load ("Menus/DifficultyCanvas"), Vector3.zero, Quaternion.identity);
 		//difficultyInterface.GetComponent<Canvas> ().worldCamera = GameManagerScript.instance.mainCamera.GetComponent<Camera>();
 
-		gameObject.SetActive (false);
+		this.transform.parent.gameObject.SetActive(false);
 		//has to destroy game object
 	}
 		
