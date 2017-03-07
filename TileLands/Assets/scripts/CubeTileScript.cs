@@ -36,8 +36,10 @@ public class CubeTileScript : MonoBehaviour {
 			PickForestSkins ();
 		} else if (PuzzleGeneratorScript.instance.CurrentTheme == Theme.Desert) {
 			PickDesertSkins ();
+		} else if (PuzzleGeneratorScript.instance.CurrentTheme == Theme.DesertIsland) {
+			PickIslandSkins ();
 		}
-        PickIncorrectSkin();
+			PickIncorrectSkin ();
 
         Initialize();
     }
@@ -52,16 +54,17 @@ public class CubeTileScript : MonoBehaviour {
         //create the tile skins
         tileFacade = Instantiate(tileSkin, transform.position, Quaternion.identity);
         tileFacade.transform.SetParent(transform);
+
+		//make rising true
         int randomRotation = Random.Range(0, 3);
         tileFacade.transform.Rotate(new Vector3(0, 90f * randomRotation, 0));
-
 
         //skin replace trigger
         skinReplaced = false;
 
         //create ripple on instance
-		if ((PuzzleGeneratorScript.instance.CurrentTheme == Theme.Ocean)) {
-			ripple = Instantiate (rippleEffect, new Vector3 (transform.position.x, -.4f, transform.position.z), Quaternion.identity);
+		if ((PuzzleGeneratorScript.instance.CurrentTheme == Theme.Ocean || PuzzleGeneratorScript.instance.CurrentTheme == Theme.DesertIsland)) {
+			ripple = Instantiate (rippleEffect, new Vector3 (transform.position.x, -1.36f, transform.position.z), Quaternion.identity);
 		}
 
     }
@@ -82,27 +85,28 @@ public class CubeTileScript : MonoBehaviour {
             //Destroy (collision.gameObject);
 
 			//create ripple on instance
-			if ((PuzzleGeneratorScript.instance.CurrentTheme == Theme.Ocean)) {
+			if ((PuzzleGeneratorScript.instance.CurrentTheme == Theme.Ocean || PuzzleGeneratorScript.instance.CurrentTheme == Theme.DesertIsland)) {
 				ripple = Instantiate (rippleEffect, new Vector3 (transform.position.x, -.4f, transform.position.z), Quaternion.identity);
 			}
+		
 
-            //remove current cube from list
-            GameLoopScript.instance.activeCubeList.Remove(gameObject);
+			//possible source of error
+			//tileFacade.transform.SetParent (null);
+
+			//tileFacade.GetComponent<TIleRiseScript> ().StartFall ();
 
             //destroy object
-            Destroy(tileFacade);
-            Destroy(gameObject);
+			Destroy();
         }
 
         //if not on a solution tile, create the lava skin for that tile
         if (collision.gameObject.tag == "SolutionTile")
         {
-            if (!skinReplaced)
-            {
-                //destroy current skin
-                Destroy(tileFacade);
+			if (!skinReplaced) {
+				//destroy current skin
+				Destroy (tileFacade);
 
-
+				//if there is no tile parent
 
 				//if cube collides with any object from the cube list
 				if (PuzzleGeneratorScript.instance.CurrentTheme == Theme.Ocean) {
@@ -110,18 +114,23 @@ public class CubeTileScript : MonoBehaviour {
 					PickForestSkins ();
 				} else if (PuzzleGeneratorScript.instance.CurrentTheme == Theme.Desert) {
 					PickDesertSkins ();
+				} else if (PuzzleGeneratorScript.instance.CurrentTheme == Theme.DesertIsland) {
+					PickIslandSkins ();
+
+
 				}
+
 					
+				tileFacade = Instantiate (tileSkin, transform.position, Quaternion.identity);
+				tileFacade.transform.SetParent (transform);
+				int randomRotation = Random.Range (0, 3);
+				tileFacade.transform.Rotate (new Vector3 (0, 90f * randomRotation, 0));
 
 
-                tileFacade = Instantiate(tileSkin, transform.position, Quaternion.identity);
-                tileFacade.transform.SetParent(transform);
-                int randomRotation = Random.Range(0, 3);
-                tileFacade.transform.Rotate(new Vector3(0, 90f * randomRotation, 0));
-
-                //skin was replaced
-                skinReplaced = true;
-            }
+				//skin was replaced
+				skinReplaced = true;
+				
+			}
         }
     }
 
@@ -137,7 +146,7 @@ public class CubeTileScript : MonoBehaviour {
 				//create the proper sound
 				//create proper sound
 				//if cube collides with any object from the cube list
-				if (PuzzleGeneratorScript.instance.CurrentTheme == Theme.Ocean) {
+				if (PuzzleGeneratorScript.instance.CurrentTheme == Theme.Ocean || PuzzleGeneratorScript.instance.CurrentTheme == Theme.DesertIsland) {
 					//pick the forest skins
 					AudioManager.Instance.PlaySplash();
 				} else if (PuzzleGeneratorScript.instance.CurrentTheme == Theme.Desert) {
@@ -334,9 +343,83 @@ public class CubeTileScript : MonoBehaviour {
 	}
 
 	//desertisland skins
-	void PickDesertIslandSkins()
+	void PickIslandSkins()
 	{
+		{
 
+			skinRandomizer = Random.Range(0, 13);
+			rippleEffect = (GameObject)Resources.Load("Effects/TileRipples");
+
+			switch (skinRandomizer)
+			{
+			case 0:
+				{
+					tileSkin = (GameObject)Resources.Load("GameTiles/Island/Island01");
+				}
+				break;
+			case 1:
+				{
+					tileSkin = (GameObject)Resources.Load("GameTiles/Island/Island02");
+				}
+				break;
+			case 2:
+				{
+					tileSkin = (GameObject)(Resources.Load("GameTiles/Island/Island03"));
+				}
+				break;
+			case 3:
+				{
+					tileSkin = (GameObject)Resources.Load("GameTiles/Island/Island04");
+				}
+				break;
+			case 4:
+				{
+					tileSkin = (GameObject)Resources.Load("GameTiles/Island/Island05");
+				}
+				break;
+			case 5:
+				{
+					tileSkin = (GameObject)Resources.Load("GameTiles/Island/Island06");
+				}
+				break;
+			case 6:
+				{
+					tileSkin = (GameObject)Resources.Load("GameTiles/Island/Island07");
+				}
+				break;
+			case 7:
+				{
+					tileSkin = (GameObject)Resources.Load("GameTiles/Island/Island08");
+				}
+				break;
+			case 8:
+				{
+					tileSkin = (GameObject)Resources.Load("GameTiles/Island/Island09");
+				}
+				break;
+			case 9:
+				{
+					tileSkin = (GameObject)Resources.Load("GameTiles/Island/Island10");
+				}
+				break;
+			case 10:
+				{
+					tileSkin = (GameObject)Resources.Load("GameTiles/Island/Island11");
+				}
+				break;
+			case 11:
+				{
+					tileSkin = (GameObject)Resources.Load("GameTiles/Island/Island12");
+				}
+				break;
+			case 12:
+				{
+					tileSkin = (GameObject)Resources.Load("GameTiles/Island/Island13");
+				}
+				break;
+
+			}
+		}
 	}
 
 	//lavaskins
@@ -354,8 +437,23 @@ public class CubeTileScript : MonoBehaviour {
     void PickIncorrectSkin()
     {
         rippleEffect = (GameObject)Resources.Load("Effects/TileRipples");
-
         tileSkin = (GameObject)Resources.Load("GameTiles/IncorrectTile");
     }
+
+	void Destroy()
+	{
+
+		//possible source of error
+		tileFacade.transform.SetParent (null);
+
+		tileFacade.GetComponent<TIleRiseScript> ().Falling = true;
+
+		tileFacade.GetComponent<TIleRiseScript> ().StartFall ();
+
+		//remove current cube from list
+		GameLoopScript.instance.activeCubeList.Remove(gameObject);
+
+		Destroy (gameObject);
+	}
 
 }

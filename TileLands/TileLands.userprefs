@@ -1,23 +1,22 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/scripts/PuzzleGeneratorScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/scripts/CubeTileScript.cs">
     <Files>
-      <File FileName="Assets/scripts/GenerationTileScript.cs" Line="1" Column="1" />
-      <File FileName="Assets/TextFadeIn.cs" Line="1" Column="1" />
-      <File FileName="Assets/scripts/CubeTileScript.cs" Line="1" Column="1" />
-      <File FileName="Assets/scripts/CameraRotation.cs" Line="1" Column="1" />
-      <File FileName="Assets/scripts/AudioManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/scripts/RestartCurrent.cs" Line="1" Column="1" />
-      <File FileName="Assets/scripts/RestartPuzzleButton.cs" Line="1" Column="1" />
+      <File FileName="Assets/scripts/TIleRiseScript.cs" Line="98" Column="24" />
+      <File FileName="Assets/scripts/CubeTileScript.cs" Line="118" Column="25" />
       <File FileName="Assets/NextStageScript.cs" Line="1" Column="1" />
       <File FileName="Assets/TitleZoomIn.cs" Line="1" Column="1" />
       <File FileName="Assets/MainMenuScript.cs" Line="1" Column="1" />
       <File FileName="Assets/ReturnToMainMenu.cs" Line="1" Column="1" />
       <File FileName="Assets/DeleteUI.cs" Line="1" Column="1" />
       <File FileName="Assets/CreateHowToMenu.cs" Line="1" Column="1" />
-      <File FileName="Assets/scripts/GameLoopScript.cs" Line="1" Column="1" />
-      <File FileName="Assets/gotoMainmenu.cs" Line="1" Column="1" />
-      <File FileName="Assets/scripts/PuzzleGeneratorScript.cs" Line="113" Column="16" />
+      <File FileName="Assets/scripts/GameLoopScript.cs" Line="90" Column="50" />
+      <File FileName="Assets/GameManagerScript.cs" Line="10" Column="5" />
+      <File FileName="Assets/scripts/PuzzleGeneratorScript.cs" Line="226" Column="2" />
+      <File FileName="Assets/GameAssets.cs" Line="1" Column="1" />
+      <File FileName="Assets/StartMainGame.cs" Line="1" Column="1" />
+      <File FileName="Assets/scripts/RandomSunLight.cs" Line="1" Column="1" />
+      <File FileName="Assets/scripts/GenerationTileScript.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

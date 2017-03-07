@@ -101,8 +101,18 @@ public class GameLoopScript : MonoBehaviour {
 			//create ocean;
 			ocean = Resources.Load<GameObject>("DesertPlane");
 
-			AudioManager.Instance.PlayDesertSound ();
-	
+			AudioManager.Instance.PlayDesertSound ();	
+		}
+
+		//play island sound
+		else if (PuzzleGeneratorScript.instance.CurrentTheme == Theme.DesertIsland) {
+
+			/// 
+			//create ocean;
+			ocean = Resources.Load<GameObject>("OceanPlane");
+
+			//play Island ambient
+			AudioManager.Instance.PlayOceanSound ();
 		}
 
 		//////////////
@@ -139,7 +149,18 @@ public class GameLoopScript : MonoBehaviour {
 
 			//destroy the game canvas interface.
 			Destroy(PuzzleGeneratorScript.instance.GetComponent<PuzzleGeneratorScript>().gameInterface);
-		
+
+			//force settling on all cube objects.
+			foreach (GameObject activeCube in activeCubeList) {
+				if (activeCube.GetComponentInChildren<TIleRiseScript> () != null) {
+					activeCube.GetComponentInChildren<TIleRiseScript> ().Settling = true;
+					activeCube.GetComponentInChildren<TIleRiseScript> ().StartSettle ();
+				}
+			}
+
+			foreach (GameObject solutionGrid in solutionList) {
+				Destroy (solutionGrid);
+			}
 
             //deactivate game
             GameManagerScript.instance.gameActive = false;

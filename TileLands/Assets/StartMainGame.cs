@@ -18,6 +18,10 @@ public class StartMainGame : MonoBehaviour {
 	void TaskOnClick(){
 		AudioManager.Instance.PlayButton1 ();
 		//make the new game canvas
+
+		//set difficulty to test value
+		GameSettingsScript.instance.setDifficulty= GameSettingsScript.instance.EXPERT_EVOLUTIONS;
+
 		MainMenuScript.instance.goToMainGame = true;
 	}
 }

@@ -56,10 +56,7 @@ public class PuzzleGeneratorScript : MonoBehaviour {
 		SolutionTiles = new List<GameObject>();
 
 		//placeholder evolution levels
-		easyEvolutions = 5;
-		mediumEvolutions = 12;
-		//hardEvolutions = 15;
-		//expertEvolutions = 20;
+
 
 		newRandomCubeInt = 0;
 
@@ -76,7 +73,7 @@ public class PuzzleGeneratorScript : MonoBehaviour {
 	void Initialize()
 	{
 		//select the proper theme
-		randomTheme = (Theme)Random.Range (0, 2);
+		randomTheme = (Theme)Random.Range (0, 3);
 
 		//set gameload to false
 		gameLoaded = false;
@@ -152,9 +149,6 @@ public class PuzzleGeneratorScript : MonoBehaviour {
 
 		testCounter += 1 * Time.fixedDeltaTime;
 		//evolution testing script
-
-		Debug.Log (testCounter);
-
 		if (testCounter > .05f){
 
 			if (evolutionCounter < evolutionRequirement) {
@@ -210,7 +204,7 @@ public class PuzzleGeneratorScript : MonoBehaviour {
 	{
 
 		evolutionCounter = 0;
-		evolutionRequirement = mediumEvolutions;
+		evolutionRequirement = GameSettingsScript.instance.setDifficulty;
 		SolutionGenerated = true;
 	}
 

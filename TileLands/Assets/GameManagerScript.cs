@@ -10,7 +10,8 @@ public class GameManagerScript : MonoBehaviour {
     GameObject puzzleGenerator;
     public GameObject mainCamera;
     public bool gameActive;
-  
+
+
 	GameObject loadInterface;
 
     // Use this for initialization
