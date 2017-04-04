@@ -26,7 +26,6 @@ public class GameLoopScript : MonoBehaviour {
 	public bool transitioningToMainMenu;
     public bool rotatingCameraLeft;
 	public bool rotatingCameraRight;
-
 	public int turns;
 
     int fireworkTimer;
@@ -158,12 +157,16 @@ public class GameLoopScript : MonoBehaviour {
 				}
 			}
 
-			foreach (GameObject solutionGrid in solutionList) {
-				Destroy (solutionGrid);
-			}
+			//need solution grid delay
+
+				foreach (GameObject solutionGrid in solutionList) {
+					Destroy (solutionGrid);
+				}
 
             //deactivate game
             GameManagerScript.instance.gameActive = false;
+
+
 
             if (!fireworkTriggered)
             {
@@ -175,6 +178,9 @@ public class GameLoopScript : MonoBehaviour {
 				//instantiates the end gamvas
 				completionInterface = (GameObject)Instantiate(Resources.Load ("CompletionCanvas"), Vector3.zero, Quaternion.identity);
 				completionInterface.GetComponent<Canvas> ().worldCamera = GameManagerScript.instance.mainCamera.GetComponent<Camera>();
+
+				//play win chime
+				AudioManager.Instance.PlayChime2 ();
             }
 
             if (endgameCameraRotation < .5f)

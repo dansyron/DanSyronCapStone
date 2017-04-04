@@ -62,10 +62,10 @@ public class CubeTileScript : MonoBehaviour {
         //skin replace trigger
         skinReplaced = false;
 
+
         //create ripple on instance
-		if ((PuzzleGeneratorScript.instance.CurrentTheme == Theme.Ocean || PuzzleGeneratorScript.instance.CurrentTheme == Theme.DesertIsland)) {
 			ripple = Instantiate (rippleEffect, new Vector3 (transform.position.x, -1.36f, transform.position.z), Quaternion.identity);
-		}
+
 
     }
 
@@ -85,9 +85,7 @@ public class CubeTileScript : MonoBehaviour {
             //Destroy (collision.gameObject);
 
 			//create ripple on instance
-			if ((PuzzleGeneratorScript.instance.CurrentTheme == Theme.Ocean || PuzzleGeneratorScript.instance.CurrentTheme == Theme.DesertIsland)) {
 				ripple = Instantiate (rippleEffect, new Vector3 (transform.position.x, -.4f, transform.position.z), Quaternion.identity);
-			}
 		
 
 			//possible source of error
@@ -269,7 +267,7 @@ public class CubeTileScript : MonoBehaviour {
 	{
 
 		skinRandomizer = Random.Range(0, 13);
-		rippleEffect = (GameObject)Resources.Load("Effects/TileRipples");
+		rippleEffect = (GameObject)Resources.Load("Effects/TileDust");
 
 		switch (skinRandomizer)
 		{
@@ -436,7 +434,13 @@ public class CubeTileScript : MonoBehaviour {
 
     void PickIncorrectSkin()
     {
-        rippleEffect = (GameObject)Resources.Load("Effects/TileRipples");
+		if (PuzzleGeneratorScript.instance.CurrentTheme == Theme.Ocean || PuzzleGeneratorScript.instance.CurrentTheme == Theme.DesertIsland) {
+			rippleEffect = (GameObject)Resources.Load("Effects/TileRipples");
+		} else if (PuzzleGeneratorScript.instance.CurrentTheme == Theme.Desert) {
+			rippleEffect = (GameObject)Resources.Load("Effects/TileDust");
+		}
+
+
         tileSkin = (GameObject)Resources.Load("GameTiles/IncorrectTile");
     }
 

@@ -35,8 +35,11 @@ public class AudioManager : MonoBehaviour {
 	public AudioClip Button1;
 	public AudioClip Button2;
 	public AudioClip Button3;
+	public AudioClip Chime1;
+	public AudioClip Chime2;
 	public AudioClip MenuSound;
 	public AudioClip firework;
+	public AudioClip mainMusic;
 
 	// Use this for initialization
 	void Awake () {
@@ -61,6 +64,8 @@ public class AudioManager : MonoBehaviour {
 		Button1 = (AudioClip)Resources.Load ("Audio/ButtonPress1");
 		Button2 = (AudioClip)Resources.Load ("Audio/ButtonPress2");
 		Button3 = (AudioClip)Resources.Load ("Audio/ButtonPress3");
+		Chime1 = (AudioClip)Resources.Load ("Audio/tilelands chime 1");
+		Chime2 = (AudioClip)Resources.Load ("Audio/tilelands chime 2");
 		MenuSound = (AudioClip)Resources.Load ("Audio/MenuWind");
 		firework = (AudioClip)Resources.Load ("Audio/firework");
 
@@ -79,6 +84,7 @@ public class AudioManager : MonoBehaviour {
 	{
 		//load sound into the clip.
 		sfxSource.clip = OceanSound;
+		sfxSource.loop = true;
 		sfxSource.Play ();
 	}
 
@@ -86,6 +92,7 @@ public class AudioManager : MonoBehaviour {
 	{
 		//load sound into the clip.
 		sfxSource.clip = MenuSound;
+		sfxSource.loop = true;
 		sfxSource.Play ();
 	}
 
@@ -94,6 +101,7 @@ public class AudioManager : MonoBehaviour {
 	{
 		//load sound into the clip.
 		sfxSource.clip = DesertSound;
+		sfxSource.loop = true;
 		sfxSource.Play ();
 	}
 
@@ -131,6 +139,18 @@ public class AudioManager : MonoBehaviour {
 		ButtonSounds1.PlayOneShot (Button1);
 	}
 
+	public void PlayChime1()
+	{
+		ButtonSounds1.clip = Chime1;
+		ButtonSounds1.PlayOneShot (Chime1);
+	}
+
+	public void PlayChime2()
+	{
+		ButtonSounds1.clip = Chime2;
+		ButtonSounds1.PlayOneShot (Chime2);
+	}
+
 	//depress
 	public void PlayButton2()
 	{
@@ -143,6 +163,38 @@ public class AudioManager : MonoBehaviour {
 	{
 		ButtonSounds1.clip = Button3;
 		ButtonSounds1.PlayOneShot (Button3);
+	}
+
+	//mutes sounds
+	public void MuteAll()
+	{
+		sfxSource.volume = 0;
+		musicSource.volume = 0;
+		TileSoundSource.volume = 0;
+		ButtonSounds1.volume = 0;
+		ButtonSounds2.volume = 0;
+	}
+
+	//unmutes sounds
+	public void unMuteAll()
+	{
+		sfxSource.volume = 1;
+		musicSource.volume = 1;
+		TileSoundSource.volume = 1;
+		ButtonSounds1.volume = 1;
+		ButtonSounds2.volume = 1;
+	}
+
+	//mutes music
+	public void MuteMusic()
+	{
+		musicSource.volume = 0;
+	}
+
+	//unmutes music
+	public void UnmuteMusic()
+	{
+		musicSource.volume = 1;
 	}
 
 
