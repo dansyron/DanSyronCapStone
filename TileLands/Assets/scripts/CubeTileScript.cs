@@ -26,6 +26,7 @@ public class CubeTileScript : MonoBehaviour {
     void Start()
     {
 		//establishes game border
+		//border = GameSettingsScript.instance.gameBorder;
 		border = 6;
 
         transform.localScale = new Vector3(1f, 1f, 1f);

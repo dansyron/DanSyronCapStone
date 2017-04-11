@@ -70,6 +70,7 @@ public class AudioManager : MonoBehaviour {
 		firework = (AudioClip)Resources.Load ("Audio/firework");
 
 		instance = this;
+		Muted = false;
 
 
 
@@ -173,6 +174,7 @@ public class AudioManager : MonoBehaviour {
 		TileSoundSource.volume = 0;
 		ButtonSounds1.volume = 0;
 		ButtonSounds2.volume = 0;
+		Muted = true;
 	}
 
 	//unmutes sounds
@@ -183,6 +185,7 @@ public class AudioManager : MonoBehaviour {
 		TileSoundSource.volume = 1;
 		ButtonSounds1.volume = 1;
 		ButtonSounds2.volume = 1;
+		Muted = false;
 	}
 
 	//mutes music
@@ -213,6 +216,11 @@ public class AudioManager : MonoBehaviour {
 
 	//volume for music
 	public float MusicVolume {
+		get;
+		set;
+	}
+
+	public bool Muted {
 		get;
 		set;
 	}

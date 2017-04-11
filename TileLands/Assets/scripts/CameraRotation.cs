@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraRotation : MonoBehaviour {
 
 
-
+	//test for input
 	// Use this for initialization
 	void Start () {
 
@@ -15,6 +15,7 @@ public class CameraRotation : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+		//add swipe and pan controls here
 
 	}
 

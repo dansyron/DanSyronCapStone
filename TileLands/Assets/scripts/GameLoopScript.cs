@@ -29,6 +29,7 @@ public class GameLoopScript : MonoBehaviour {
 	public int turns;
 
     int fireworkTimer;
+	int solutionCounter;
 	float nextStageCounter;
 	float returnToMenuCounter;
     float endgameCameraRotation;
@@ -59,6 +60,7 @@ public class GameLoopScript : MonoBehaviour {
 		//counter for proceeding to the next stage
 		nextStageCounter = 0;
 		returnToMenuCounter = 0;
+		solutionCounter = 0;
 
         resettingMoves = false;
         rotatingCameraLeft = false;
@@ -67,6 +69,8 @@ public class GameLoopScript : MonoBehaviour {
         //puzzle isnt solved
         solved1 = false;
 		solved2 = false;
+
+		DeletingGrid = true;
 
         //create instance of this object
         instance = this;
@@ -159,9 +163,10 @@ public class GameLoopScript : MonoBehaviour {
 
 			//need solution grid delay
 
-				foreach (GameObject solutionGrid in solutionList) {
-					Destroy (solutionGrid);
-				}
+			//	foreach (GameObject solutionGrid in solutionList) {
+			//		Destroy (solutionGrid);
+			//	}
+			DeleteSolutionGrid();
 
             //deactivate game
             GameManagerScript.instance.gameActive = false;
@@ -313,6 +318,24 @@ public class GameLoopScript : MonoBehaviour {
 
 	}
 
+	IEnumerator DeleteGrid()
+	{
+		while (DeletingGrid) {
+
+			solutionCounter++;
+			if (solutionCounter > 3) {
+
+				foreach (GameObject solutionGrid in solutionList) {
+					Destroy (solutionGrid);
+				}
+				DeletingGrid = false;
+			}
+
+
+			yield return new WaitForFixedUpdate ();
+		}
+	}
+
 	public void CameraIsRotatingRight()
 	{
 		rotatingCameraRight = true;
@@ -340,5 +363,15 @@ public class GameLoopScript : MonoBehaviour {
 	public bool GameWon {
 		get;
 		set;
+	}
+
+	public bool DeletingGrid {
+		get;
+		set;
+	}
+
+	public void DeleteSolutionGrid()
+	{
+		StartCoroutine (DeleteGrid());
 	}
 }
