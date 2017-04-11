@@ -40,7 +40,7 @@ public class PuzzleGeneratorScript : MonoBehaviour {
 	void Start () 
 	{
 
-		border = 6;
+		border = 5;
 
 		gameReady = false;
 

@@ -16,7 +16,7 @@ public class GenerationTileScript : MonoBehaviour {
 	void Start () 
 	{
 		//edge border constraint
-		border = 6;
+		border = 5;
 
 		transform.localScale = new Vector3(1f, 1f, 1f);
 	}

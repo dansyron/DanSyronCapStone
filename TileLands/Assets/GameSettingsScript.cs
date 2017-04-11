@@ -9,11 +9,11 @@ public class GameSettingsScript : MonoBehaviour {
 	//assigned difficulty
 	public int setDifficulty;
 
-	public int EASY_EVOLUTIONS = 5;
+	public int EASY_EVOLUTIONS = 6;
 	public int MED_EVOLUTIONS = 10;
-	public int HARD_EVOLUTIONS = 20;
-	public int EXPERT_EVOLUTIONS = 40;
-	public int MASTER_EVOLUTIONS = 80;
+	public int HARD_EVOLUTIONS = 15;
+	public int EXPERT_EVOLUTIONS = 25;
+	public int MASTER_EVOLUTIONS = 40;
 
 
 	public int gameBorder = 4;
