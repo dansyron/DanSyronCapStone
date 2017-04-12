@@ -16,7 +16,7 @@ public class GameSettingsScript : MonoBehaviour {
 	public int MASTER_EVOLUTIONS = 40;
 
 
-	public int gameBorder = 4;
+	public int gameBorder = 5;
 
 	public int TOTAL_TILES_TOGGLED;
 	public int WINS;
