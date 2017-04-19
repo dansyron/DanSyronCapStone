@@ -41,7 +41,7 @@ public class TitleZoomIn : MonoBehaviour {
 			else if (-2 <= transform.position.x && transform.position.x < 0) {
 
 				if (speed > 0) {
-					speed -= .1f;
+					speed -= .3f;
 				}
 				transform.position = new Vector3 (currentPosition += speed * Time.fixedDeltaTime, transform.position.y, transform.position.z);
 			}

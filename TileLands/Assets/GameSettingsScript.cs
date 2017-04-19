@@ -20,7 +20,8 @@ public class GameSettingsScript : MonoBehaviour {
 	public int BRONZE_MEDALS_EARNED = 0;
 	public int TOTAL_TILES_TOGGLED = 0;
 
-	public bool Muted = false;
+	public bool Muted;
+	public bool enableTouchControls = false;
 
 	public int gameBorder = 5;
 
@@ -29,8 +30,9 @@ public class GameSettingsScript : MonoBehaviour {
 	// Use this for initialization
 	void Awake()
 	{
-		instance = this;
+	    instance = this;
 		DontDestroyOnLoad(transform.gameObject);
+		Muted = false;
 	}
 
 	//loads game

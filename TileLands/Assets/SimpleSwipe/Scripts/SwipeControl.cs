@@ -26,14 +26,14 @@ public class SwipeControl : MonoBehaviour {
 	private Callback m_cCurrentCallback;
 
 	/* Public parameters */
-	public  bool 		m_bMobileTouchBased 		= true;
-	public  bool  		m_bActiveVisualFeedback   	= true;
+	public  bool 		m_bMobileTouchBased 		= false;
+	public  bool  		m_bActiveVisualFeedback   	= false;
 	public  bool  		m_bLeftClick				= true;
 	public	bool  		m_bInstantSwipe 			= false;
 	public  SWIPE_TYPE 	m_stSwipeType				= SWIPE_TYPE.ST_8_DIRECTION;
 
 	[Range(0.0f, 10.0f)]
-	public  float SwipeDistance 					= 10f;
+	public  float SwipeDistance 					= 5f;
 
 	/* Private parameters */
 	private bool 		 m_bSwipePressed 			= false;
@@ -45,7 +45,7 @@ public class SwipeControl : MonoBehaviour {
 	private int			 m_iInputMouse      		= 0;
 	private float 		 m_fHeightSensibility 		= 5f;
 	private float 		 m_fWidthSensibility  		= 5f;
-	private float sensitivyAdjustment = .5f;
+	private float sensitivyAdjustment = .2f;
 
 
 	/* This method allow you to set the callback. 

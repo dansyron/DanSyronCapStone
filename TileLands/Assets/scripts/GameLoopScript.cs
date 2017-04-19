@@ -385,7 +385,10 @@ public class GameLoopScript : MonoBehaviour {
 
 		m_enCurrentDirection = iDirection;
 
-		if (GameManagerScript.instance.gameActive) {
+		if (GameManagerScript.instance.gameActive && GameSettingsScript.instance.enableTouchControls) {
+
+			//if not clicking down
+
 
 			switch (iDirection) {
 			case SwipeControl.SWIPE_DIRECTION.SD_LEFT:
@@ -405,6 +408,7 @@ public class GameLoopScript : MonoBehaviour {
 					AudioManager.Instance.PlaySwoosh (); 
 				}
 				break;
+
 			}
 		}
 
