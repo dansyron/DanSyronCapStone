@@ -1,25 +1,20 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SimpleSwipe/Scripts/SwipeControl.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/scripts/GameLoopScript.cs">
     <Files>
-      <File FileName="Assets/GameSettingsScript.cs" Line="21" Column="37" />
-      <File FileName="Assets/TitleZoomIn.cs" Line="37" Column="33" />
-      <File FileName="Assets/scripts/GameLoopScript.cs" Line="401" Column="6" />
-      <File FileName="Assets/scripts/RotateLeft.cs" Line="1" Column="1" />
-      <File FileName="Assets/scripts/QuitButton.cs" Line="17" Column="2" />
-      <File FileName="Assets/TextFadeIn.cs" Line="1" Column="1" />
-      <File FileName="Assets/muteButton.cs" Line="1" Column="1" />
-      <File FileName="Assets/CreateOptionsMenu.cs" Line="1" Column="1" />
-      <File FileName="Assets/scripts/GenerationTileScript.cs" Line="1" Column="1" />
-      <File FileName="Assets/scripts/CubeTileScript.cs" Line="136" Column="23" />
-      <File FileName="Assets/GoldMedalScript.cs" Line="25" Column="1" />
-      <File FileName="Assets/SilverMedalScript.cs" Line="25" Column="18" />
-      <File FileName="Assets/BronzeMedalScript.cs" Line="23" Column="23" />
-      <File FileName="Assets/bronzeCountScript.cs" Line="21" Column="1" />
-      <File FileName="Assets/SilverAwardScript.cs" Line="20" Column="1" />
+      <File FileName="Assets/GameSettingsScript.cs" Line="27" Column="2" />
+      <File FileName="Assets/TitleZoomIn.cs" Line="44" Column="17" />
+      <File FileName="Assets/scripts/GameLoopScript.cs" Line="394" Column="36" />
+      <File FileName="Assets/scripts/RotateLeft.cs" Line="14" Column="39" />
+      <File FileName="Assets/scripts/CubeTileScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/GoldMedalScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/SilverMedalScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/BronzeMedalScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/bronzeCountScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/SilverAwardScript.cs" Line="1" Column="1" />
       <File FileName="Assets/GoldAwardScript.cs" Line="7" Column="1" />
-      <File FileName="Assets/SimpleSwipe/Scripts/SwipeControl.cs" Line="47" Column="46" />
-      <File FileName="Assets/SimpleSwipe/ExampleScene/ExampleScene.cs" Line="60" Column="45" />
+      <File FileName="Assets/SimpleSwipe/Scripts/SwipeControl.cs" Line="48" Column="40" />
+      <File FileName="Assets/scripts/AudioManager.cs" Line="79" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
