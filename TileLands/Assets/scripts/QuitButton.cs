@@ -17,6 +17,7 @@ public class QuitButton : MonoBehaviour {
 
 	void TaskOnClick(){
 		AudioManager.Instance.PlayButton3 ();
+		GameSettingsScript.instance.SaveGame ();
 		Application.Quit ();
 	}
 }

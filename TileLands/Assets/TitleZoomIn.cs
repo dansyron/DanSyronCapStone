@@ -18,13 +18,13 @@ public class TitleZoomIn : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		speed = 12f;
+		speed = 8f;
 
 		menuActivated = false;
 		menuTriggered = false;
 
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 
@@ -32,12 +32,29 @@ public class TitleZoomIn : MonoBehaviour {
 
 			currentPosition = transform.position.x;
 
-			if (transform.position.x < 0) {
-				transform.position = new Vector3 (currentPosition += speed * Time.deltaTime, transform.position.y, transform.position.z);
+
+
+			if (transform.position.x < -2) {
+				transform.position = new Vector3 (currentPosition += speed * Time.fixedDeltaTime, transform.position.y, transform.position.z);
 			}
-			 else {
+
+			else if (-2 <= transform.position.x && transform.position.x < 0) {
+
+				if (speed > 0) {
+					speed -= .1f;
+				}
+				transform.position = new Vector3 (currentPosition += speed * Time.fixedDeltaTime, transform.position.y, transform.position.z);
+			}
+
+			else if (speed <= 0 || transform.position.x >= 0){
 				movingin = false;
+
+				if (!menuActivated)
+				{
+					transform.position = new Vector3(0, transform.position.y, transform.position.z);
+				}
 				menuActivated = true;
+
 			}
 
 			if (speed <= 0) {

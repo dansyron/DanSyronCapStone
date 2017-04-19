@@ -8,6 +8,9 @@ public class GameLoopScript : MonoBehaviour {
 
     public static GameLoopScript instance;
 
+	//swipe support
+	private SwipeControl.SWIPE_DIRECTION m_enCurrentDirection;
+
     GameObject sunLight;
     GameObject ocean;
     GameObject EnvironmentPlane;
@@ -43,6 +46,8 @@ public class GameLoopScript : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
+
+		GameObject.Find( "SwipeController" ).GetComponent<SwipeControl>().SetMethodToCall( SwipeSupport );
 
 		//set turns to 0.
 		turns = 0;
@@ -373,5 +378,35 @@ public class GameLoopScript : MonoBehaviour {
 	public void DeleteSolutionGrid()
 	{
 		StartCoroutine (DeleteGrid());
+	}
+
+	private void SwipeSupport (SwipeControl.SWIPE_DIRECTION iDirection)
+	{
+
+		m_enCurrentDirection = iDirection;
+
+		if (GameManagerScript.instance.gameActive) {
+
+			switch (iDirection) {
+			case SwipeControl.SWIPE_DIRECTION.SD_LEFT:
+				{
+					//RotateCameraLeft ();
+					rotatingCameraLeft = false;
+					rotatingCameraRight = true;
+					AudioManager.Instance.PlaySwoosh (); 
+				}
+				break;
+
+			case SwipeControl.SWIPE_DIRECTION.SD_RIGHT:
+				{
+					//RotateCameraRight ();
+					rotatingCameraLeft = true;
+					rotatingCameraRight = false;
+					AudioManager.Instance.PlaySwoosh (); 
+				}
+				break;
+			}
+		}
+
 	}
 }

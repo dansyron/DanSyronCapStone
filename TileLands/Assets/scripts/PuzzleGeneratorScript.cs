@@ -12,10 +12,6 @@ public class PuzzleGeneratorScript : MonoBehaviour {
 
 	public GameObject gameInterface;
 
-	int easyEvolutions;
-	int mediumEvolutions;
-	//int hardEvolutions;
-	//int expertEvolutions;
 	int randomCheck;
 	int newRandomCubeInt;
 

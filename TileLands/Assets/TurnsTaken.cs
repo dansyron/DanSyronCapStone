@@ -10,7 +10,7 @@ public class TurnsTaken : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		txt = gameObject.GetComponent<Text> ();
-		txt.text = "Turns: " + GameLoopScript.instance.GetComponent<GameLoopScript> ().turns;
+		txt.text = "Turns\n"+ GameLoopScript.instance.GetComponent<GameLoopScript> ().turns;
 	}
 	
 	// Update is called once per frame

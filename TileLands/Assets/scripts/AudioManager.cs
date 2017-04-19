@@ -25,6 +25,8 @@ public class AudioManager : MonoBehaviour {
 	AudioSource ButtonSounds1;
 	[SerializeField]
 	AudioSource ButtonSounds2;
+	[SerializeField]
+	AudioSource ButtonSounds3;
 
 	//insert audio clips.
 	public AudioClip OceanSound;
@@ -40,16 +42,18 @@ public class AudioManager : MonoBehaviour {
 	public AudioClip MenuSound;
 	public AudioClip firework;
 	public AudioClip mainMusic;
+	public AudioClip MedalSound;
 
 	// Use this for initialization
 	void Awake () {
-		if (Instance != null && Instance != this)
-		{
-			Destroy(gameObject);
+		if (Instance != null && Instance != this) {
+			Destroy (gameObject);
+		} else {
+			Instance = this;
+			Initialize();
 		}
 
-		Instance = this;
-		Initialize();
+
 	}
 
 
@@ -68,16 +72,22 @@ public class AudioManager : MonoBehaviour {
 		Chime2 = (AudioClip)Resources.Load ("Audio/tilelands chime 2");
 		MenuSound = (AudioClip)Resources.Load ("Audio/MenuWind");
 		firework = (AudioClip)Resources.Load ("Audio/firework");
+		MedalSound = (AudioClip)Resources.Load ("Audio/MedalSound");
 
 		instance = this;
-		Muted = false;
+
+		if (GameSettingsScript.instance.Muted) {
+			MuteAll ();
+		} else {
+			unMuteAll ();
+		}
 
 
 
 	}
 	// Update is called once per frame
 	void Update () {
-		
+
 	}
 
 
@@ -87,6 +97,12 @@ public class AudioManager : MonoBehaviour {
 		sfxSource.clip = OceanSound;
 		sfxSource.loop = true;
 		sfxSource.Play ();
+	}
+
+	public void PlayMedalSound()
+	{
+		ButtonSounds3.clip = MedalSound;
+		ButtonSounds3.PlayOneShot (MedalSound);
 	}
 
 	public void PlayMenuSound()
@@ -108,16 +124,23 @@ public class AudioManager : MonoBehaviour {
 
 	public void PlaySplash()
 	{
-		TileSoundSource.volume = .8f;
-		TileSoundSource.clip = OceanTileSound;
-		TileSoundSource.PlayOneShot (OceanTileSound);
+		if (!GameSettingsScript.instance.Muted) {
+			TileSoundSource.pitch = Random.Range (.7f, 1.2f);
+			TileSoundSource.volume = .8f;
+			TileSoundSource.clip = OceanTileSound;
+			TileSoundSource.PlayOneShot (OceanTileSound);
+		}
 	}
 
 	public void PlayRockCrunch()
 	{
-		TileSoundSource.volume = .8f;
-		TileSoundSource.clip = DesertTileSound;
-		TileSoundSource.PlayOneShot (DesertTileSound);
+		if (!GameSettingsScript.instance.Muted) {
+
+			TileSoundSource.pitch = Random.Range (.7f, 1.2f);
+			TileSoundSource.volume = .8f;
+			TileSoundSource.clip = DesertTileSound;
+			TileSoundSource.PlayOneShot (DesertTileSound);
+		}
 	}
 
 	public void PlaySwoosh()
@@ -174,7 +197,8 @@ public class AudioManager : MonoBehaviour {
 		TileSoundSource.volume = 0;
 		ButtonSounds1.volume = 0;
 		ButtonSounds2.volume = 0;
-		Muted = true;
+		ButtonSounds3.volume = 0;
+		GameSettingsScript.instance.Muted = true;
 	}
 
 	//unmutes sounds
@@ -185,7 +209,8 @@ public class AudioManager : MonoBehaviour {
 		TileSoundSource.volume = 1;
 		ButtonSounds1.volume = 1;
 		ButtonSounds2.volume = 1;
-		Muted = false;
+		ButtonSounds3.volume = 1;
+		GameSettingsScript.instance.Muted = false;
 	}
 
 	//mutes music
@@ -219,9 +244,5 @@ public class AudioManager : MonoBehaviour {
 		get;
 		set;
 	}
-
-	public bool Muted {
-		get;
-		set;
-	}
+				
 }

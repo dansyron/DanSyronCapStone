@@ -8,7 +8,7 @@ public class muteButton : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		if (AudioManager.Instance.Muted) {
+		if (GameSettingsScript.instance.Muted) {
 			GetComponent<Toggle> ().isOn = true;
 		} else {
 			GetComponent<Toggle> ().isOn = false;

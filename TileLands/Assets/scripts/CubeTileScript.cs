@@ -142,6 +142,9 @@ public class CubeTileScript : MonoBehaviour {
 			if (Input.GetMouseButtonDown (0)) {
 				//increase turns
 
+				//add a tile toggle increase
+				GameSettingsScript.instance.TOTAL_TILES_TOGGLED += 1;
+
 				//create the proper sound
 				//create proper sound
 				//if cube collides with any object from the cube list
