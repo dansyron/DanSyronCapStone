@@ -10,7 +10,9 @@ public class GameManagerScript : MonoBehaviour {
     GameObject puzzleGenerator;
     public GameObject mainCamera;
     public bool gameActive;
-  
+
+
+	GameObject loadInterface;
 
     // Use this for initialization
     void Start () {
@@ -24,6 +26,10 @@ public class GameManagerScript : MonoBehaviour {
         puzzleGenerator = (GameObject)Instantiate(Resources.Load("PuzzleGeneratorScript"), Vector3.zero, Quaternion.identity);
 
         gameActive = false;
+
+		//start the loader interface
+		loadInterface = (GameObject)Instantiate(Resources.Load ("LoaderCanvas"), Vector3.zero, Quaternion.identity);
+		loadInterface.GetComponent<Canvas> ().worldCamera = GameManagerScript.instance.mainCamera.GetComponent<Camera>();
 
     }
 	

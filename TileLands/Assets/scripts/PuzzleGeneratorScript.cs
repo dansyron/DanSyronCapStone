@@ -8,38 +8,51 @@ public class PuzzleGeneratorScript : MonoBehaviour {
 	Vector3 currentPosition;
 	GameObject GenerationCube;
 	GameObject gameController;
-
 	public static PuzzleGeneratorScript instance;
-	int easyEvolutions;
-	int mediumEvolutions;
-	//int hardEvolutions;
-	//int expertEvolutions;
+
+	public GameObject gameInterface;
+
 	int randomCheck;
 	int newRandomCubeInt;
 
-	bool solutionCreated;
+	int border;
+
 	bool gameLoaded;
 
+	//selects a random game theme
+	Theme randomTheme;
 
-	float testCounter = 0;
+	float testCounter;
+
+	bool gameReady;
+
+
+	//controls the evolution count
 	int evolutionCounter;
 	int evolutionRequirement;
+
 
 	// Use this for initialization
 	void Start () 
 	{
+
+		border = 5;
+
+		gameReady = false;
+
+		SolutionGenerated = false;
+
 		//create instance of this object
 		instance = this;
+
+		testCounter = 0;
 
 		GenerationCube = Resources.Load<GameObject> ("GenerationCube");
 
 		SolutionTiles = new List<GameObject>();
 
 		//placeholder evolution levels
-		easyEvolutions = 5;
-		mediumEvolutions = 11;
-		//hardEvolutions = 15;
-		//expertEvolutions = 20;
+
 
 		newRandomCubeInt = 0;
 
@@ -55,6 +68,9 @@ public class PuzzleGeneratorScript : MonoBehaviour {
 
 	void Initialize()
 	{
+		//select the proper theme
+		randomTheme = (Theme)Random.Range (0, 3);
+
 		//set gameload to false
 		gameLoaded = false;
 
@@ -94,14 +110,16 @@ public class PuzzleGeneratorScript : MonoBehaviour {
 		//generates the solution grid
 		for (int i = SolutionTiles.Count - 1; i > -1; i--) {
 
-			//add the solution tile to the list
+				//add the solution tile to the list
+
 
 			GameObject SolutionGridInstance = (GameObject)Resources.Load ("SolutionGrid");
 
-
-
-			//add a solution grid piece to the solution list
-			gameController.GetComponent<GameLoopScript>().solutionList.Add(Instantiate(SolutionGridInstance, new Vector3 (SolutionTiles [i].transform.position.x, 0, SolutionTiles [i].transform.position.z), Quaternion.identity));
+			//remove nonfitting tiles BORDER
+			if (Mathf.Abs (SolutionTiles [i].transform.position.x) <= border && Mathf.Abs (SolutionTiles [i].transform.position.y) <= border && Mathf.Abs (SolutionTiles [i].transform.position.z) <= border) {
+				//add a solution grid piece to the solution list
+				gameController.GetComponent<GameLoopScript> ().solutionList.Add (Instantiate (SolutionGridInstance, new Vector3 (SolutionTiles [i].transform.position.x, 0, SolutionTiles [i].transform.position.z), Quaternion.identity));
+			}
 
 			SolutionTiles [i].GetComponent<GenerationTileScript> ().Destroy ();
 			SolutionTiles.RemoveAt (i);
@@ -117,6 +135,7 @@ public class PuzzleGeneratorScript : MonoBehaviour {
 
         //game has loaded
         gameLoaded = true;
+
 	}
 
 	public void GeneratePuzzle()
@@ -124,10 +143,9 @@ public class PuzzleGeneratorScript : MonoBehaviour {
 		//evoluton testing script
 		//WORkING PUZZLE GENERATION SCRIPT
 
-		testCounter += .4f;
+		testCounter += 1 * Time.fixedDeltaTime;
 		//evolution testing script
-
-		if (testCounter > 1.2f){
+		if (testCounter > .05f){
 
 			if (evolutionCounter < evolutionRequirement) {
 
@@ -155,17 +173,24 @@ public class PuzzleGeneratorScript : MonoBehaviour {
 
 				testCounter = 0;
 			} else {
-				solutionCreated = false;
+				SolutionGenerated = false;
 			}
 		}
 
-		if (!solutionCreated) {
+		if (!SolutionGenerated) {
 			CreateSolution ();
 
 			//create game start tile
-			solutionCreated = true;
+			SolutionGenerated = true;
             //make the game active
             GameManagerScript.instance.gameActive = true;
+
+			//make game ready
+			PuzzleGeneratorScript.instance.GameReady = true;
+
+				//create game canvas
+				gameInterface = (GameObject)Instantiate(Resources.Load ("GameCanvas"), Vector3.zero, Quaternion.identity);
+				gameInterface.GetComponent<Canvas> ().worldCamera = GameManagerScript.instance.mainCamera.GetComponent<Camera>();
         }
 
 		//end of puzzle generation script
@@ -175,8 +200,8 @@ public class PuzzleGeneratorScript : MonoBehaviour {
 	{
 
 		evolutionCounter = 0;
-		evolutionRequirement = mediumEvolutions;
-		solutionCreated = true;
+		evolutionRequirement = GameSettingsScript.instance.setDifficulty;
+		SolutionGenerated = true;
 	}
 
 	public void GameLoad()
@@ -187,5 +212,23 @@ public class PuzzleGeneratorScript : MonoBehaviour {
 		GeneratePuzzle();
 		//end of puzzle generation script
 
+	}
+
+
+	//theme selector
+	public Theme CurrentTheme {
+		get {return randomTheme; }
+		set { randomTheme = value; }
+	}
+
+	public bool SolutionGenerated{
+		get;
+		private set;
+	}
+
+	//is the game ready
+	public bool GameReady {
+		get {return gameReady;}
+		set {gameReady = value;}
 	}
 }

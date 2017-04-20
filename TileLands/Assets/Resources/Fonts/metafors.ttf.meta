@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: b80b057823ebf48cfb10041e0c961616
+timeCreated: 1487627972
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: metafors
+  fontNames:
+  - metafors
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
