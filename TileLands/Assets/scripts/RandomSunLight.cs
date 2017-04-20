@@ -26,9 +26,9 @@ public class RandomSunLight : MonoBehaviour {
 		} else if (Mathf.Abs (randomLightAngle) <= 50 && Mathf.Abs (randomLightAngle) > 30) {
 			//NIGHT SETTINGS
 			GetComponent<Light> ().intensity = 1f;
-			GetComponent<Light> ().color = new Color (.1f, .05f, .6f);
+			GetComponent<Light> ().color = new Color (.3f, .2f, .4f);
 			//change global ambient settings
-			RenderSettings.ambientLight = new Color (.2f, .1f, .6f);
+			RenderSettings.ambientLight = new Color (.2f, .1f, .4f);
 
 
 		} else {
